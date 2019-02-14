@@ -22,7 +22,7 @@ void list_destroy(List* pList)
 
 int list_add(List* pList, Data data)
 {
-	if(pList->numData >= LIST_INC_LEN)
+	if(pList->numData >= LIST_LEN)
 	{
 		printf("데이터 추가 불가\n");
 		return FAIL;

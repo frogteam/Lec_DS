@@ -7,21 +7,21 @@
 #define SUCCESS 1
 #define FAIL 0
 
-/* ArrayList 의 정의 */
-#define LIST_INC_LEN	3
+/* ArrayList 의 데이터 정의 */
+#define LIST_LEN	4
 
 typedef int Data;     // 데이터는 int
 
 typedef struct _ArrayList
 {
-	Data arr[LIST_INC_LEN];  // 데이터(들)
+	Data arr[LIST_LEN];  // 데이터(들)
 	int numData;           // 리스트 안의 데이터 개수
 	int curPosition;      // iteration
 } ArrayList;
 
-/* ArrayList 동작 */
 typedef ArrayList List;
 
+/* ArrayList 동작 */
 void list_init(List *pList);   // 리스트 초기화  
 void list_destroy(List *pList);   // 리스트 제거
 

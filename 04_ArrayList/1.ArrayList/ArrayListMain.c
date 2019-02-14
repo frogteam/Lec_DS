@@ -16,44 +16,16 @@ void printList(List *pList)
 int main()
 {
 	List myList;
-	list_init(&myList);
-
-	/** add() 동작 확인 **/
-	printList(&myList);
+	list_init(&myList);   // 리스트 생성
+	
 	list_add(&myList, 100);  // 데이터 추가
-	printList(&myList);
 	list_add(&myList, 50);   // 데이터 추가
-	printList(&myList);
 	list_add(&myList, 100);   // 데이터 추가
-	printList(&myList);
-	list_add(&myList, 100);   // 불가
-	list_add(&myList, 70);    // 불가
+	list_add(&myList, 20);   // 데이터 추가
+	list_add(&myList, 45);   // 데이터 추가    - 실패
+	list_add(&myList, 70);   // 데이터 추가    - 실패
 
-	// 데이터 수정
-	list_set(&myList, 0, 40);
-	list_set(&myList, 1, 30);
-	list_set(&myList, 4, 30);  // 수정 실패
-	printList(&myList);
-
-	// 데이터 개수
-	printf("데이터 개수는 %d\n", list_length(&myList));
-
-	// 데이터 삭제
-	list_remove(&myList, 2);
-	printList(&myList);
-
-	list_remove(&myList, 2);
-	printList(&myList);
-
-	list_remove(&myList, 0);
-	printList(&myList);
-
-	list_remove(&myList, 0);
-	list_remove(&myList, 0);
-	list_remove(&myList, 0);
-	printList(&myList);
-
-	printf("데이터 개수는 %d\n", list_length(&myList));
-
+	list_destroy(&myList);  // 리스트 제거
 	return 0;
 } // end main()
+
