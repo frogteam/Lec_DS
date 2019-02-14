@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\CircularLinkedList">
+      <UniqueIdentifier>{0ddf1114-6bde-4124-ac66-d44c7c83c619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob05-1">
+      <UniqueIdentifier>{825f85f4-ecfd-4165-b896-1f62523b063e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob05-2">
+      <UniqueIdentifier>{2c0c80dc-718b-4ed1-896f-3f524a685825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\DoublyLinkedList">
+      <UniqueIdentifier>{ab35c54c-1f8a-4d9d-8ddf-d9c873caf496}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CircularLinkedList\CLinkedList.c">
+      <Filter>소스 파일\CircularLinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="CircularLinkedList\CLinkedListMain.c">
+      <Filter>소스 파일\CircularLinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="DublyLinkedList\DBLinkedList.c">
+      <Filter>소스 파일\DoublyLinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="DublyLinkedList\DBLinkedListMain.c">
+      <Filter>소스 파일\DoublyLinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob05-1\NightDutyMain.c">
+      <Filter>소스 파일\Prob05-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob05-1\CLinkedList.c">
+      <Filter>소스 파일\Prob05-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob05-2\DBDLinkedListMain.c">
+      <Filter>소스 파일\Prob05-2</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob05-2\DBDLinkedList.c">
+      <Filter>소스 파일\Prob05-2</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CircularLinkedList\CLinkedList.h">
+      <Filter>소스 파일\CircularLinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="DublyLinkedList\DBLinkedList.h">
+      <Filter>소스 파일\DoublyLinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob05-1\CLinkedList.h">
+      <Filter>소스 파일\Prob05-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob05-1\Employee.h">
+      <Filter>소스 파일\Prob05-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob05-2\DBDLinkedList.h">
+      <Filter>소스 파일\Prob05-2</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

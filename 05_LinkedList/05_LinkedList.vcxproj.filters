@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\1.LinkedList">
+      <UniqueIdentifier>{74f7f0e1-ae65-44a1-8fa8-b2ba155011ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\2.LinkedListStruct">
+      <UniqueIdentifier>{82b3c29b-1d80-45cf-a70d-9286a4d85ac7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\3.OrderedList">
+      <UniqueIdentifier>{d4d43eb0-352f-48e0-bff6-abb2b4250c5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\4.DoubleLinkedList">
+      <UniqueIdentifier>{7a0d0b91-f942-4c99-b202-e5bec0fcda92}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LinkedList.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="1.LinkedList\LinkedList.h">
+      <Filter>소스 파일\1.LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="2.LinkedListStruct\LinkedListStruct.h">
+      <Filter>소스 파일\2.LinkedListStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="3.OrderedList\OrdList.h">
+      <Filter>소스 파일\3.OrderedList</Filter>
+    </ClInclude>
+    <ClInclude Include="4.DoubleLinkedList\DLinkedList.h">
+      <Filter>소스 파일\4.DoubleLinkedList</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="1.LinkedList\LinkedListMain.c">
+      <Filter>소스 파일\1.LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="1.LinkedList\LinkedList.c">
+      <Filter>소스 파일\1.LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="2.LinkedListStruct\LinkedListStruct.c">
+      <Filter>소스 파일\2.LinkedListStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="2.LinkedListStruct\LinkedListStructMain.c">
+      <Filter>소스 파일\2.LinkedListStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="3.OrderedList\OrdList.c">
+      <Filter>소스 파일\3.OrderedList</Filter>
+    </ClCompile>
+    <ClCompile Include="3.OrderedList\OrdListMain.c">
+      <Filter>소스 파일\3.OrderedList</Filter>
+    </ClCompile>
+    <ClCompile Include="4.DoubleLinkedList\DLinkedList.c">
+      <Filter>소스 파일\4.DoubleLinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="4.DoubleLinkedList\DLinkedListMain.c">
+      <Filter>소스 파일\4.DoubleLinkedList</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="2.LinkedListStruct\보고서20190209-2049.diagsession">
+      <Filter>소스 파일\2.LinkedListStruct</Filter>
+    </None>
+  </ItemGroup>
+</Project>

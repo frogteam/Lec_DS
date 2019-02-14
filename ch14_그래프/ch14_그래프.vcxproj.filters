@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\ALGraph">
+      <UniqueIdentifier>{2d2b66c3-0251-4824-9f49-eeb1cb19d28c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ALGraphBFS">
+      <UniqueIdentifier>{21cb44e8-ad1a-4e25-9fea-e9a36e8ba9e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ALGraphDFS">
+      <UniqueIdentifier>{808c0b1f-cc30-4b87-872d-3f91f4649e13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ALGraphKruskal">
+      <UniqueIdentifier>{32dc4a8b-e1ef-42cf-ae77-3078534b237a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ALGraphBFS\ALGraphBFS.h">
+      <Filter>소스 파일\ALGraphBFS</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphBFS\CircularQueue.h">
+      <Filter>소스 파일\ALGraphBFS</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphBFS\DLinkedList.h">
+      <Filter>소스 파일\ALGraphBFS</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphDFS\DLinkedList.h">
+      <Filter>소스 파일\ALGraphDFS</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphDFS\ALGraphDFS.h">
+      <Filter>소스 파일\ALGraphDFS</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphDFS\ArrayBaseStack.h">
+      <Filter>소스 파일\ALGraphDFS</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphKruskal\PriorityQueue.h">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphKruskal\UsefulHeap.h">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphKruskal\ALEdge.h">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphKruskal\ALGraphKruskal.h">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphKruskal\ArrayBaseStack.h">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraphKruskal\DLinkedList.h">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraph\ALGraph.h">
+      <Filter>소스 파일\ALGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="ALGraph\DLinkedList.h">
+      <Filter>소스 파일\ALGraph</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ALGraphBFS\BFSMain.c">
+      <Filter>소스 파일\ALGraphBFS</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphBFS\CircularQueue.c">
+      <Filter>소스 파일\ALGraphBFS</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphBFS\DLinkedList.c">
+      <Filter>소스 파일\ALGraphBFS</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphBFS\ALGraphBFS.c">
+      <Filter>소스 파일\ALGraphBFS</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphDFS\ALGraphDFS.c">
+      <Filter>소스 파일\ALGraphDFS</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphDFS\ArrayBaseStack.c">
+      <Filter>소스 파일\ALGraphDFS</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphDFS\DFSMain.c">
+      <Filter>소스 파일\ALGraphDFS</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphDFS\DLinkedList.c">
+      <Filter>소스 파일\ALGraphDFS</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphKruskal\KruskalMain.c">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphKruskal\PriorityQueue.c">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphKruskal\UsefulHeap.c">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphKruskal\ALGraphKruskal.c">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphKruskal\ArrayBaseStack.c">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraphKruskal\DLinkedList.c">
+      <Filter>소스 파일\ALGraphKruskal</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraph\ALGraph.c">
+      <Filter>소스 파일\ALGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraph\ALGraphMain.c">
+      <Filter>소스 파일\ALGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraph\DLinkedList.c">
+      <Filter>소스 파일\ALGraph</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

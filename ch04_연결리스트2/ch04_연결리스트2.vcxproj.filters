@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\DLinkedList">
+      <UniqueIdentifier>{fd949905-b60e-4240-9cf6-90e4a1cb11ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\DLinkedListSort">
+      <UniqueIdentifier>{aeba466e-fd38-4e2e-9d0d-1ecca7ea1b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob04-1">
+      <UniqueIdentifier>{46f66e60-6e3d-43c3-bad6-89fc49a41d94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob04-2">
+      <UniqueIdentifier>{817c52e3-aaff-40a4-9336-d6fd134ee36b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob04-3">
+      <UniqueIdentifier>{aa6c255b-4972-4137-8d33-b3dbabe81886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob04-4">
+      <UniqueIdentifier>{682c7cea-1970-49ba-bf86-a4d2074c1984}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArrayRead.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedRead.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DLinkedList\DLinkedList.c">
+      <Filter>소스 파일\DLinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="DLinkedList\DLinkedListMain.c">
+      <Filter>소스 파일\DLinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="DLinkedListSort\DLinkedListSortMain.c">
+      <Filter>소스 파일\DLinkedListSort</Filter>
+    </ClCompile>
+    <ClCompile Include="DLinkedListSort\DLinkedList.c">
+      <Filter>소스 파일\DLinkedListSort</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob04-1\HeadAddLinkedRead.c">
+      <Filter>소스 파일\Prob04-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob04-2\DLinkedRead.c">
+      <Filter>소스 파일\Prob04-2</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob04-3\Point.c">
+      <Filter>소스 파일\Prob04-3</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob04-3\PointListMain.c">
+      <Filter>소스 파일\Prob04-3</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob04-3\DLinkedList.c">
+      <Filter>소스 파일\Prob04-3</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob04-4\Point.c">
+      <Filter>소스 파일\Prob04-4</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob04-4\PointListSortMain.c">
+      <Filter>소스 파일\Prob04-4</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob04-4\DLinkedList.c">
+      <Filter>소스 파일\Prob04-4</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DLinkedList\DLinkedList.h">
+      <Filter>소스 파일\DLinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="DLinkedListSort\DLinkedList.h">
+      <Filter>소스 파일\DLinkedListSort</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob04-3\DLinkedList.h">
+      <Filter>소스 파일\Prob04-3</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob04-3\Point.h">
+      <Filter>소스 파일\Prob04-3</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob04-4\DLinkedList.h">
+      <Filter>소스 파일\Prob04-4</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob04-4\Point.h">
+      <Filter>소스 파일\Prob04-4</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

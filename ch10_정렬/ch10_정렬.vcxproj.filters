@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\HeapSort">
+      <UniqueIdentifier>{9596ec1f-9c7e-4fbb-9525-9241e1119ad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob10-1">
+      <UniqueIdentifier>{441ee039-c777-45f7-9339-3a3ffb6268dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\RadixSort">
+      <UniqueIdentifier>{f93af6c5-5146-46dc-83a5-088a6bdbdeb5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BubbleSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="InsertionSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MergeSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="HeapSort\HeapSort.c">
+      <Filter>소스 파일\HeapSort</Filter>
+    </ClCompile>
+    <ClCompile Include="HeapSort\UsefulHeap.c">
+      <Filter>소스 파일\HeapSort</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob10-1\MOTQuickSort.c">
+      <Filter>소스 파일\Prob10-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob10-1\QuickSort.c">
+      <Filter>소스 파일\Prob10-1</Filter>
+    </ClCompile>
+    <ClCompile Include="RadixSort\ListBaseQueue.c">
+      <Filter>소스 파일\RadixSort</Filter>
+    </ClCompile>
+    <ClCompile Include="RadixSort\RadixSort.c">
+      <Filter>소스 파일\RadixSort</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HeapSort\UsefulHeap.h">
+      <Filter>소스 파일\HeapSort</Filter>
+    </ClInclude>
+    <ClInclude Include="RadixSort\ListBaseQueue.h">
+      <Filter>소스 파일\RadixSort</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

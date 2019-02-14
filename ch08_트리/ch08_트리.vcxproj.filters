@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\BinaryTree">
+      <UniqueIdentifier>{56025951-0530-4d45-999e-aa007fd601a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\BinaryTreeTraversalAdded">
+      <UniqueIdentifier>{04bedf1c-697b-408c-981c-a6d0350b588c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ExpressionTree">
+      <UniqueIdentifier>{7417de59-8ee1-4364-bff9-3035371e3a35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob08-1">
+      <UniqueIdentifier>{6ec146dd-ce7a-412a-aaf2-622dc5481f02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob08-2">
+      <UniqueIdentifier>{37e58719-dfad-40d6-8b37-f026df9b0078}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BinaryTree\BinaryTree.c">
+      <Filter>소스 파일\BinaryTree</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryTree\BinaryTreeMain.c">
+      <Filter>소스 파일\BinaryTree</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryTree\BinaryTreeTraverseMain.c">
+      <Filter>소스 파일\BinaryTree</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryTreeTraversalAdded\BinaryTree2.c">
+      <Filter>소스 파일\BinaryTreeTraversalAdded</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryTreeTraversalAdded\BinaryTreeMain2.c">
+      <Filter>소스 파일\BinaryTreeTraversalAdded</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionTree\ExpressionMain.c">
+      <Filter>소스 파일\ExpressionTree</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionTree\ExpressionTree.c">
+      <Filter>소스 파일\ExpressionTree</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionTree\ListBaseStack.c">
+      <Filter>소스 파일\ExpressionTree</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpressionTree\BinaryTree2.c">
+      <Filter>소스 파일\ExpressionTree</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob08-1\BinaryTreeDeleteMain.c">
+      <Filter>소스 파일\Prob08-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob08-1\BinaryTree2.c">
+      <Filter>소스 파일\Prob08-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob08-2\ExpressionTree.c">
+      <Filter>소스 파일\Prob08-2</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob08-2\ListBaseStack.c">
+      <Filter>소스 파일\Prob08-2</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob08-2\BinaryTree2.c">
+      <Filter>소스 파일\Prob08-2</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob08-2\ExpressionMain.c">
+      <Filter>소스 파일\Prob08-2</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BinaryTree\BinaryTree.h">
+      <Filter>소스 파일\BinaryTree</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTreeTraversalAdded\BinaryTree2.h">
+      <Filter>소스 파일\BinaryTreeTraversalAdded</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionTree\ExpressionTree.h">
+      <Filter>소스 파일\ExpressionTree</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionTree\ListBaseStack.h">
+      <Filter>소스 파일\ExpressionTree</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpressionTree\BinaryTree2.h">
+      <Filter>소스 파일\ExpressionTree</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob08-1\BinaryTree2.h">
+      <Filter>소스 파일\Prob08-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob08-2\ExpressionTree.h">
+      <Filter>소스 파일\Prob08-2</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob08-2\ListBaseStack.h">
+      <Filter>소스 파일\Prob08-2</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob08-2\BinaryTree2.h">
+      <Filter>소스 파일\Prob08-2</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

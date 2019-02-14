@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\ArrayBaseStack">
+      <UniqueIdentifier>{87d7fb06-61d9-4f4f-bbb1-1ffc41cdd0fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\InfixCalculator">
+      <UniqueIdentifier>{d8588b1a-b4f6-4f92-a10f-949fed0d9a0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\InfixToPostfix">
+      <UniqueIdentifier>{11b6faa6-2049-442e-b59b-dd95b2bb7dff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ListBaseStack">
+      <UniqueIdentifier>{2e9cc069-863f-46a8-87ac-27d27541a216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\PostCalculator">
+      <UniqueIdentifier>{0e07a852-c1cc-4d8f-9ab9-8bcd82f68f05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob06-1">
+      <UniqueIdentifier>{d058d31f-c3ea-44ce-b8d9-2fbe8a51fec2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArrayBaseStack\ArrayBaseStack.c">
+      <Filter>소스 파일\ArrayBaseStack</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayBaseStack\ArrayBaseStackMain.c">
+      <Filter>소스 파일\ArrayBaseStack</Filter>
+    </ClCompile>
+    <ClCompile Include="InfixCalculator\InfixCalculatorMain.c">
+      <Filter>소스 파일\InfixCalculator</Filter>
+    </ClCompile>
+    <ClCompile Include="InfixCalculator\InfixToPostfix.c">
+      <Filter>소스 파일\InfixCalculator</Filter>
+    </ClCompile>
+    <ClCompile Include="InfixCalculator\ListBaseStack.c">
+      <Filter>소스 파일\InfixCalculator</Filter>
+    </ClCompile>
+    <ClCompile Include="InfixCalculator\PostCalculator.c">
+      <Filter>소스 파일\InfixCalculator</Filter>
+    </ClCompile>
+    <ClCompile Include="InfixCalculator\InfixCalculator.c">
+      <Filter>소스 파일\InfixCalculator</Filter>
+    </ClCompile>
+    <ClCompile Include="InfixToPostfix\InfixToPostfixMain.c">
+      <Filter>소스 파일\InfixToPostfix</Filter>
+    </ClCompile>
+    <ClCompile Include="InfixToPostfix\ListBaseStack.c">
+      <Filter>소스 파일\InfixToPostfix</Filter>
+    </ClCompile>
+    <ClCompile Include="InfixToPostfix\InfixToPostfix.c">
+      <Filter>소스 파일\InfixToPostfix</Filter>
+    </ClCompile>
+    <ClCompile Include="ListBaseStack\ListBaseStack.c">
+      <Filter>소스 파일\ListBaseStack</Filter>
+    </ClCompile>
+    <ClCompile Include="ListBaseStack\ListBaseStackMain.c">
+      <Filter>소스 파일\ListBaseStack</Filter>
+    </ClCompile>
+    <ClCompile Include="PostCalculator\PostCalculator.c">
+      <Filter>소스 파일\PostCalculator</Filter>
+    </ClCompile>
+    <ClCompile Include="PostCalculator\PostCalculatorMain.c">
+      <Filter>소스 파일\PostCalculator</Filter>
+    </ClCompile>
+    <ClCompile Include="PostCalculator\ListBaseStack.c">
+      <Filter>소스 파일\PostCalculator</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob06-1\CLLBaseStack.c">
+      <Filter>소스 파일\Prob06-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob06-1\CLLBaseStackMain.c">
+      <Filter>소스 파일\Prob06-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob06-1\CLinkedList.c">
+      <Filter>소스 파일\Prob06-1</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArrayBaseStack\ArrayBaseStack.h">
+      <Filter>소스 파일\ArrayBaseStack</Filter>
+    </ClInclude>
+    <ClInclude Include="InfixCalculator\InfixToPostfix.h">
+      <Filter>소스 파일\InfixCalculator</Filter>
+    </ClInclude>
+    <ClInclude Include="InfixCalculator\ListBaseStack.h">
+      <Filter>소스 파일\InfixCalculator</Filter>
+    </ClInclude>
+    <ClInclude Include="InfixCalculator\PostCalculator.h">
+      <Filter>소스 파일\InfixCalculator</Filter>
+    </ClInclude>
+    <ClInclude Include="InfixCalculator\InfixCalculator.h">
+      <Filter>소스 파일\InfixCalculator</Filter>
+    </ClInclude>
+    <ClInclude Include="InfixToPostfix\ListBaseStack.h">
+      <Filter>소스 파일\InfixToPostfix</Filter>
+    </ClInclude>
+    <ClInclude Include="InfixToPostfix\InfixToPostfix.h">
+      <Filter>소스 파일\InfixToPostfix</Filter>
+    </ClInclude>
+    <ClInclude Include="ListBaseStack\ListBaseStack.h">
+      <Filter>소스 파일\ListBaseStack</Filter>
+    </ClInclude>
+    <ClInclude Include="PostCalculator\ListBaseStack.h">
+      <Filter>소스 파일\PostCalculator</Filter>
+    </ClInclude>
+    <ClInclude Include="PostCalculator\PostCalculator.h">
+      <Filter>소스 파일\PostCalculator</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob06-1\CLinkedList.h">
+      <Filter>소스 파일\Prob06-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob06-1\CLLBaseStack.h">
+      <Filter>소스 파일\Prob06-1</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\CircularQueue">
+      <UniqueIdentifier>{def536b2-5ae4-42d8-9625-14d5706e9bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Deque">
+      <UniqueIdentifier>{28b5b27f-78bc-4479-b6bf-3f67566cf2df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\HamburgerSim">
+      <UniqueIdentifier>{102a5a6f-4d35-49e2-b985-91f682d1028a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ListBaseQueue">
+      <UniqueIdentifier>{6674888f-a958-4c2c-be0f-6fb7dc779ea9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Prob07-1">
+      <UniqueIdentifier>{88d685f4-4cfe-4da0-b75b-8f1a2a930aa0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CircularQueue\CircularQueue.c">
+      <Filter>소스 파일\CircularQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="CircularQueue\CircularQueueMain.c">
+      <Filter>소스 파일\CircularQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="Deque\Deque.c">
+      <Filter>소스 파일\Deque</Filter>
+    </ClCompile>
+    <ClCompile Include="Deque\DequeMain.c">
+      <Filter>소스 파일\Deque</Filter>
+    </ClCompile>
+    <ClCompile Include="HamburgerSim\CircularQueue.c">
+      <Filter>소스 파일\HamburgerSim</Filter>
+    </ClCompile>
+    <ClCompile Include="HamburgerSim\HamburgerSim.c">
+      <Filter>소스 파일\HamburgerSim</Filter>
+    </ClCompile>
+    <ClCompile Include="ListBaseQueue\ListBaseQueueMain.c">
+      <Filter>소스 파일\ListBaseQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="ListBaseQueue\ListBaseQueue.c">
+      <Filter>소스 파일\ListBaseQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob07-1\DequeBaseQueue.c">
+      <Filter>소스 파일\Prob07-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob07-1\DequeBaseQueueMain.c">
+      <Filter>소스 파일\Prob07-1</Filter>
+    </ClCompile>
+    <ClCompile Include="Prob07-1\Deque.c">
+      <Filter>소스 파일\Prob07-1</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CircularQueue\CircularQueue.h">
+      <Filter>소스 파일\CircularQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="Deque\Deque.h">
+      <Filter>소스 파일\Deque</Filter>
+    </ClInclude>
+    <ClInclude Include="HamburgerSim\CircularQueue.h">
+      <Filter>소스 파일\HamburgerSim</Filter>
+    </ClInclude>
+    <ClInclude Include="ListBaseQueue\ListBaseQueue.h">
+      <Filter>소스 파일\ListBaseQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob07-1\DequeBaseQueue.h">
+      <Filter>소스 파일\Prob07-1</Filter>
+    </ClInclude>
+    <ClInclude Include="Prob07-1\Deque.h">
+      <Filter>소스 파일\Prob07-1</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
