@@ -16,6 +16,9 @@
     <Filter Include="소스 파일\1.ArrayStack">
       <UniqueIdentifier>{3f8b21da-723b-43cc-8ad1-6cd0639bee07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\2.ListStack">
+      <UniqueIdentifier>{d18eb48b-6718-415c-b6c4-8ec443258702}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1.ArrayStack\ArrayStack.c">
@@ -24,10 +27,19 @@
     <ClCompile Include="1.ArrayStack\ArrayStackMain.c">
       <Filter>소스 파일\1.ArrayStack</Filter>
     </ClCompile>
+    <ClCompile Include="2.ListStack\ListBaseStack.c">
+      <Filter>소스 파일\2.ListStack</Filter>
+    </ClCompile>
+    <ClCompile Include="2.ListStack\ListBaseStackMain.c">
+      <Filter>소스 파일\2.ListStack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="1.ArrayStack\ArrayStack.h">
       <Filter>소스 파일\1.ArrayStack</Filter>
+    </ClInclude>
+    <ClInclude Include="2.ListStack\ListBaseStack.h">
+      <Filter>소스 파일\2.ListStack</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

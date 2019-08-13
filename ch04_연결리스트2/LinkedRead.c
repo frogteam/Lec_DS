@@ -4,7 +4,7 @@
 typedef struct _node
 {
 	int data;
-	struct _node * next;
+	struct _node * pNext;
 } Node;
 
 int main(void)
@@ -27,12 +27,12 @@ int main(void)
 		/*** 노드의 추가과정 ***/
 		newNode = (Node*)malloc(sizeof(Node));
 		newNode->data = readData;
-		newNode->next = NULL;
+		newNode->pNext = NULL;
 
 		if(head == NULL)
 			head = newNode;
 		else
-			tail->next = newNode;
+			tail->pNext = newNode;
 
 		tail = newNode;
 	}
@@ -49,9 +49,9 @@ int main(void)
 		cur = head; 
 		printf("%d  ", cur->data);   // 첫 번째 데이터 출력
 		
-		while(cur->next != NULL)    // 두 번째 이후의 데이터 출력
+		while(cur->pNext != NULL)    // 두 번째 이후의 데이터 출력
 		{
-			cur = cur->next;
+			cur = cur->pNext;
 			printf("%d  ", cur->data);
 		}
 	}
@@ -65,7 +65,7 @@ int main(void)
 	else 
 	{
 		Node * delNode = head;
-		Node * delNextNode = head->next;
+		Node * delNextNode = head->pNext;
 
 		printf("%d을(를) 삭제합니다. \n", head->data);
 		free(delNode);    // 첫 번째 노드의 삭제
@@ -73,7 +73,7 @@ int main(void)
 		while(delNextNode != NULL)    // 두 번째 이후의 노드 삭제 위한 반복문
 		{
 			delNode = delNextNode;
-			delNextNode = delNextNode->next;
+			delNextNode = delNextNode->pNext;
 
 			printf("%d을(를) 삭제합니다. \n", delNode->data);
 			free(delNode);    // 두 번째 이후의 노드 삭제

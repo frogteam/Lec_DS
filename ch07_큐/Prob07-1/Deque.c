@@ -21,7 +21,7 @@ void DQAddFirst(Deque * pdeq, Data data)
 	Node * newNode = (Node*)malloc(sizeof(Node));
 	newNode->data = data;
 
-	newNode->next = pdeq->head;
+	newNode->pNext = pdeq->head;
 
 	if(DQIsEmpty(pdeq))
 		pdeq->tail = newNode;
@@ -42,9 +42,9 @@ void DQAddLast(Deque * pdeq, Data data)
 	if(DQIsEmpty(pdeq))
 		pdeq->head = newNode;		
 	else
-		pdeq->tail->next = newNode;		
+		pdeq->tail->pNext = newNode;		
 
-	newNode->next = NULL;
+	newNode->pNext = NULL;
 	pdeq->tail = newNode;
 }
 
@@ -59,7 +59,7 @@ Data DQRemoveFirst(Deque * pdeq)
 		exit(-1);
 	}
 
-	pdeq->head = pdeq->head->next;
+	pdeq->head = pdeq->head->pNext;
 	free(rnode);
 
 	if(pdeq->head == NULL)
@@ -87,7 +87,7 @@ Data DQRemoveLast(Deque * pdeq)
 	if(pdeq->tail == NULL)
 		pdeq->head = NULL;
 	else
-		pdeq->tail->next = NULL;
+		pdeq->tail->pNext = NULL;
 
 	return rdata;
 }

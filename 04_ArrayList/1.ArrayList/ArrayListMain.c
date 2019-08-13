@@ -1,4 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>  // malloc, rand, atoi .    동적메모리, 난수, 문자열 변환함수
+#include <string.h>  // memcpy, memcpy, strcpy   메모리 블록, 문자열 함수.
+#include <conio.h>   //_getch, putch ..  MS기반 C 비표준 함수
+#include <time.h>    // clock ..  시간 날짜 함수
+#pragma warning(disable:4996)   // scanf() 등 전통 C 함수중 버퍼 문제
 #include "ArrayList.h"
 
 // 리스트 출력 도우미 함수
@@ -18,14 +23,95 @@ int main()
 	List myList;
 	list_init(&myList);   // 리스트 생성
 	
+	printList(&myList);
 	list_add(&myList, 100);  // 데이터 추가
+	printList(&myList);
 	list_add(&myList, 50);   // 데이터 추가
+	printList(&myList);
 	list_add(&myList, 100);   // 데이터 추가
+	printList(&myList);
 	list_add(&myList, 20);   // 데이터 추가
+	printList(&myList);
 	list_add(&myList, 45);   // 데이터 추가    - 실패
+	printList(&myList);
 	list_add(&myList, 70);   // 데이터 추가    - 실패
+	printList(&myList);
+
+	// 데이터 수정
+	list_set(&myList, 0, 40);
+	list_set(&myList, 1, 30);
+	list_set(&myList, 4, 30);  // 수정 실패
+	printList(&myList);
+
+	// 데이터 개수
+	printf("데이터 개수는 %d\n", list_length(&myList));
+
+	// 데이터 조회
+	Data data;
+	if (list_get(&myList, 0, &data)) printf("0번째 : %d\n", data);
+	if (list_get(&myList, 6, &data)) printf("6번째 : %d\n", data);
+	if (list_get(&myList, 2, &data)) printf("2번째 : %d\n", data);
+	
+
+	// 데이터 삭제
+	list_remove(&myList, 2);
+	printList(&myList);
+	list_remove(&myList, 2);
+	printList(&myList);
+	list_remove(&myList, 0);
+	printList(&myList);
+	list_remove(&myList, 0);
+	list_remove(&myList, 0);
+	list_remove(&myList, 0);
+	printList(&myList);
+	printf("데이터 개수는 %d\n", list_length(&myList));
+
+
+	// insert 테스트
+	printf("\n");
+	list_add(&myList, 10);
+	list_add(&myList, 20);
+	printList(&myList);
+	list_insert(&myList, 1, 40);
+	printList(&myList);
+	list_insert(&myList, 0, 5);
+	printList(&myList);
+	list_insert(&myList, 0, 5);
+
+	list_init(&myList);
+	list_insert(&myList, 0, 5);
+	list_insert(&myList, 0, 25);
+	list_insert(&myList, 0, 45);
+	list_insert(&myList, 0, 55);
+	list_insert(&myList, 0, 85);
+	printList(&myList);
+
+
+	list_init(&myList);
+	list_insert(&myList, 0, 5);
+	list_insert(&myList, 1, 25);
+	list_insert(&myList, 2, 45);
+	list_insert(&myList, 3, 55);
+	list_insert(&myList, 4, 85);
+	printList(&myList);
+
+	list_init(&myList);
+	list_insert(&myList, 1, 5);
+	list_insert(&myList, 2, 5);
+	list_insert(&myList, 3, 5);
+	list_insert(&myList, 4, 5);
+	list_insert(&myList, 5, 5);
+	printList(&myList);
+
+
+
+
+
 
 	list_destroy(&myList);  // 리스트 제거
+
+	printf("아무키나 누르면 종료됩니다");
+	_getch();
 	return 0;
 } // end main()
 

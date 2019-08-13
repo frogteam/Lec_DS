@@ -19,11 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="1.ArrayStack\ArrayStack.c" />
-    <ClCompile Include="1.ArrayStack\ArrayStackMain.c" />
+    <ClCompile Include="1.ArrayStack\ArrayStack.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="1.ArrayStack\ArrayStackMain.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="2.ListStack\ListBaseStack.c" />
+    <ClCompile Include="2.ListStack\ListBaseStackMain.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="1.ArrayStack\ArrayStack.h" />
+    <ClInclude Include="1.ArrayStack\ArrayStack.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="2.ListStack\ListBaseStack.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

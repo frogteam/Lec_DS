@@ -25,6 +25,9 @@
     <Filter Include="소스 파일\4.DoubleLinkedList">
       <UniqueIdentifier>{7a0d0b91-f942-4c99-b202-e5bec0fcda92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\5.DoubleLinkedListS">
+      <UniqueIdentifier>{73b6182d-b17b-4160-92fd-cf3536a8bd35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h">
@@ -41,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="4.DoubleLinkedList\DLinkedList.h">
       <Filter>소스 파일\4.DoubleLinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="5.DoubleLinkedListS\DLinkedListS.h">
+      <Filter>소스 파일\5.DoubleLinkedListS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,10 +74,11 @@
     <ClCompile Include="4.DoubleLinkedList\DLinkedListMain.c">
       <Filter>소스 파일\4.DoubleLinkedList</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="2.LinkedListStruct\보고서20190209-2049.diagsession">
-      <Filter>소스 파일\2.LinkedListStruct</Filter>
-    </None>
+    <ClCompile Include="5.DoubleLinkedListS\DLinkedListMainS.c">
+      <Filter>소스 파일\5.DoubleLinkedListS</Filter>
+    </ClCompile>
+    <ClCompile Include="5.DoubleLinkedListS\DLinkedListS.c">
+      <Filter>소스 파일\5.DoubleLinkedListS</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

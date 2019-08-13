@@ -4,13 +4,13 @@
 
 void QueueInit(Queue * pq)
 {
-	pq->front = NULL;
-	pq->rear = NULL;
+	pq->pFront = NULL;
+	pq->pRear = NULL;
 }
 
 int QIsEmpty(Queue * pq)
 {
-	if(pq->front == NULL)
+	if(pq->pFront == NULL)
 		return TRUE;
 	else
 		return FALSE;
@@ -19,18 +19,18 @@ int QIsEmpty(Queue * pq)
 void Enqueue(Queue * pq, Data data)
 {
 	Node * newNode = (Node*)malloc(sizeof(Node));
-	newNode->next = NULL;
+	newNode->pNext = NULL;
 	newNode->data = data;
 
 	if(QIsEmpty(pq))
 	{
-		pq->front = newNode;
-		pq->rear = newNode;
+		pq->pFront = newNode;
+		pq->pRear = newNode;
 	}
 	else
 	{
-		pq->rear->next = newNode;
-		pq->rear = newNode;
+		pq->pRear->pNext = newNode;
+		pq->pRear = newNode;
 	}
 }
 
@@ -45,9 +45,9 @@ Data Dequeue(Queue * pq)
 		exit(-1);
 	}
 
-	delNode = pq->front;
+	delNode = pq->pFront;
 	retData = delNode->data;
-	pq->front = pq->front->next;
+	pq->pFront = pq->pFront->pNext;
 
 	free(delNode);
 	return retData;
@@ -61,5 +61,5 @@ Data QPeek(Queue * pq)
 		exit(-1);
 	}
 
-	return pq->front->data;
+	return pq->pFront->data;
 }

@@ -11,7 +11,7 @@ typedef Point * LData;
 typedef struct _node
 {
 	LData data;
-	struct _node * next;
+	struct _node * pNext;
 } Node;
 
 typedef struct _linkedList

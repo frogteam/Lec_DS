@@ -13,7 +13,7 @@ void LInsert(List * plist, Data data)
 	Node * newNode = (Node*)malloc(sizeof(Node));
 	newNode->data = data;
 
-	newNode->next = plist->head;
+	newNode->pNext = plist->head;
 	if(plist->head != NULL)
 		plist->head->prev = newNode;
 
@@ -36,10 +36,10 @@ int LFirst(List * plist, Data * pdata)
 
 int LNext(List * plist, Data * pdata)
 {
-	if(plist->cur->next == NULL)
+	if(plist->cur->pNext == NULL)
 		return FALSE;
 
-	plist->cur = plist->cur->next;
+	plist->cur = plist->cur->pNext;
 	*pdata = plist->cur->data;
 
 	return TRUE;

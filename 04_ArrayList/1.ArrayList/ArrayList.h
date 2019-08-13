@@ -26,8 +26,8 @@ void list_init(List *pList);   // 리스트 초기화
 void list_destroy(List *pList);   // 리스트 제거
 
 int list_add(List *pList, Data data);  // 데이터 추가
-int list_remove(List *pList, int n);  // 데이터 삭제
-int list_set(List *pList, int n, Data data);  // 데이터 수정
+int list_remove(List *pList, int n);  // n번째 데이터 삭제
+int list_set(List *pList, int n, Data data);  // n번째 데이터 수정
 int list_length(List *pList);  // 데이터 개수
 
 void list_init_iter(List *pList);   // 데이터 조회, 초기화
@@ -35,5 +35,9 @@ Data list_next(List *pList);  // 데이터 조회, 다음 데이터
 int list_hasNext(List *pList);  // 데이터 조회 : 다음번 있나?
 
 int list_get(List* pList, int n, Data *pData);   // 데이터 조회 : n번째 데이터 값 읽기
+
+// 
+int list_insert(List* pList, int n, Data *pData);  // 데이터 삽입: n번째 위치에 데이터 삽입
+
 
 #endif

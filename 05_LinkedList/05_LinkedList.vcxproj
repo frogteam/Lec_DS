@@ -31,6 +31,9 @@
     <ClInclude Include="4.DoubleLinkedList\DLinkedList.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="5.DoubleLinkedListS\DLinkedListS.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="LinkedList.h" />
   </ItemGroup>
   <ItemGroup>
@@ -58,9 +61,12 @@
     <ClCompile Include="4.DoubleLinkedList\DLinkedListMain.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="2.LinkedListStruct\보고서20190209-2049.diagsession" />
+    <ClCompile Include="5.DoubleLinkedListS\DLinkedListMainS.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="5.DoubleLinkedListS\DLinkedListS.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

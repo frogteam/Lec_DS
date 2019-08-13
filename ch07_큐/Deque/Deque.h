@@ -9,7 +9,7 @@ typedef int Data;
 typedef struct _node
 {
 	Data data;
-	struct _node * next;
+	struct _node * pNext;
 	struct _node * prev;
 } Node;
 

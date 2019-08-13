@@ -124,40 +124,6 @@ int main(int argc, char** argv)
 		printf("a:%d, A:%d\n", 'a', 'A');
 	}
 
-	printf("\n");
-	{
-		// '문자' 를 기준으로 '문자열' 자르기
-		char str[40] = "This is C ds";
-		printf("str[] = %s\n", str);
-
-
-		char *delim = " ";   // delimeter 구분자
-								// 안에 있는 글자 하나하나로 구분자 매칭됨.
-
-		char *ptr = strtok(str, delim);   // " ", " i" 등으로 시도해보자
-		// strtok(대상문자열, 기준문자);
-		// 자른 문자열을 반환, 더 이상 자를 문자열이 없으면 NULL을 반환
-
-		while (ptr != NULL)
-		{
-			printf("%s\n", ptr);
-			ptr = strtok(NULL, delim);  
-				// 첫번째 매개변수 NULL 이면, '다음 문자열' 잘라서 포인터 리턴
-				// 정확히는
-				// NULL을 넣었을 때는 직전 strtok 함수에서 처리했던 문자열에서 
-				// 잘린 문자열만큼 다음 문자로 '이동'한 뒤 다음 문자열을 자릅니다
-
-				// '이동' 하고 그곳에 NULL 이 대입됨
-
-			// ※ 만약 strtok(str, delim): 하면... 무한반복.
-		}
-
-
-		// 주의!!
-		// 원본의 변화 생김
-		printf("strtok() 후 str[] = %s\n", str);
-
-	}
 
 
 	printf("\n아무키나 입력하면 프로그램 종료됩니다\n");

@@ -115,7 +115,6 @@ int main()
 	printList(&myList);
 
 
-
 	list_destroy(&myList);
 
 	printf("프로그램을 종료합니다. 아무키나 눌러주세요\n");

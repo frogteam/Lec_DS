@@ -23,6 +23,9 @@ int main(int argc, char** argv)
 	}
 
 
+	printf("%d\n", 1 - (2 + 3 + (4 - 5 * 6) * 7) + 8 * 9);
+	printf("%d\n", 24 + 4 - 15 * 8 / (2 + 5 * 2 - 8) + 4);
+
 	printf("\n아무키나 입력하면 프로그램 종료됩니다\n");
 	_getch();
 	return 0;

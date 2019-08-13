@@ -18,12 +18,12 @@ void LInsertFront(List * plist, Data data)
 	if(plist->tail == NULL) 
 	{
 		plist->tail = newNode;
-		newNode->next = newNode;
+		newNode->pNext = newNode;
 	}
 	else
 	{
-		newNode->next = plist->tail->next;
-		plist->tail->next = newNode;
+		newNode->pNext = plist->tail->pNext;
+		plist->tail->pNext = newNode;
 	}
 
 	(plist->numOfData)++;
@@ -37,12 +37,12 @@ void LInsert(List * plist, Data data)
 	if(plist->tail == NULL) 
 	{
 		plist->tail = newNode;
-		newNode->next = newNode;
+		newNode->pNext = newNode;
 	}
 	else 
 	{
-		newNode->next = plist->tail->next;
-		plist->tail->next = newNode;
+		newNode->pNext = plist->tail->pNext;
+		plist->tail->pNext = newNode;
 		plist->tail = newNode;
 	}
 
@@ -55,7 +55,7 @@ int LFirst(List * plist, Data * pdata)
 		return FALSE;
 
 	plist->before = plist->tail;
-	plist->cur = plist->tail->next;
+	plist->cur = plist->tail->pNext;
 
 	*pdata = plist->cur->data;
 	return TRUE;
@@ -67,7 +67,7 @@ int LNext(List * plist, Data * pdata)
 		return FALSE;
 
 	plist->before = plist->cur;
-	plist->cur = plist->cur->next;
+	plist->cur = plist->cur->pNext;
 
 	*pdata = plist->cur->data;
 	return TRUE;
@@ -80,13 +80,13 @@ Data LRemove(List * plist)
 
 	if(rpos == plist->tail)    // 삭제 대상을 tail이 가리킨다면
 	{
-		if(plist->tail == plist->tail->next)    // 그리고 마지막 남은 노드라면
+		if(plist->tail == plist->tail->pNext)    // 그리고 마지막 남은 노드라면
 			plist->tail = NULL;
 		else
 			plist->tail = plist->before;
 	}
 
-	plist->before->next = plist->cur->next;
+	plist->before->pNext = plist->cur->pNext;
 	plist->cur = plist->before;
 
 	free(rpos);

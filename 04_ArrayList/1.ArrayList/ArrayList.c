@@ -63,7 +63,10 @@ int list_hasNext(List *pList)
 // 
 int list_set(List *pList, int n, Data data)
 {
-	if (n >= pList->numData) return FAIL;
+	if (n >= pList->numData) {
+		printf("%d번째 데이터 수정 실패\n", n);
+		return FAIL;
+	}
 	
 	printf("%d 번째 데이터 수정 %d --> %d\n", n, pList->arr[n], data);
 	pList->arr[n] = data;
@@ -80,7 +83,11 @@ int list_length(List *pList)
 int list_remove(List *pList, int n)
 {
 	// 배열이니까 중간 삭제하면 뒤의 것도 당겨야 한다.
-	if (n >= pList->numData) return FAIL;
+	if (n >= pList->numData)
+	{
+		printf("%d번째 데이터 삭제 실패\n", n);
+		return FAIL;
+	}
 
 	int i;
 	for (i = n; i < pList->numData - 1; i++)
@@ -100,6 +107,37 @@ int list_get(List* pList, int n, Data *pData)
 	if (n >= pList->numData) return FAIL;
 
 	*pData = pList->arr[n];  // 데이터 값,  포인터로 리턴
+
+	return SUCCESS;
+}
+
+// 데이터 삽입: n번째 위치에 데이터 삽입
+int list_insert(List* pList, int n, Data data)
+{
+	// 이미 다 차있으면 불가
+	if (pList->numData >= LIST_LEN)
+	{
+		printf("데이터 삽입 불가\n");
+		return FAIL;
+	}
+
+	// '중간' 및 '끝' 삽입은 허용
+	if (n > pList->numData)
+	{
+		printf("%d 번째 위치에 삽입 불가\n", n);
+		return FAIL;
+	}
+
+	// 기존의 n번째 부터 한칸씩 뒤로 밀려나야 한다.
+	// 맨 뒤에서부터!!! 부터 n 앞의 것들은 한칸씩 우측으로 복사
+	int i;
+	for (i = pList->numData; i - 1 >= n ; i--)
+	{
+		pList->arr[i] = pList->arr[i - 1];
+	}
+	pList->arr[n] = data; // n번째 새 데이터 
+	pList->numData++;  // 데이터 개수 증가
+	printf("%d번째 데이터 %d 삽입 성공\n", n, data);
 
 	return SUCCESS;
 }

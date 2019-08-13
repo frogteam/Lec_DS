@@ -20,7 +20,7 @@ void SPush(Stack * pstack, Data data)
 	Node * newNode = (Node*)malloc(sizeof(Node));
 
 	newNode->data = data;
-	newNode->next = pstack->head;
+	newNode->pNext = pstack->head;
 
 	pstack->head = newNode;
 }
@@ -38,7 +38,7 @@ Data SPop(Stack * pstack)
 	rdata = pstack->head->data;
 	rnode = pstack->head;
 
-	pstack->head = pstack->head->next;
+	pstack->head = pstack->head->pNext;
 	free(rnode);
 
 	return rdata;

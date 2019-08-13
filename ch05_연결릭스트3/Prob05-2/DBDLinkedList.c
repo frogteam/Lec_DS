@@ -8,9 +8,9 @@ void ListInit(List * plist)
 	plist->tail = (Node*)malloc(sizeof(Node));
 
 	plist->head->prev = NULL;
-	plist->head->next = plist->tail;
+	plist->head->pNext = plist->tail;
 
-	plist->tail->next = NULL;
+	plist->tail->pNext = NULL;
 	plist->tail->prev = plist->head;
 
 	plist->numOfData = 0;
@@ -22,9 +22,9 @@ void LInsert(List * plist, Data data)
 	newNode->data = data;
 
 	newNode->prev = plist->tail->prev;
-	plist->tail->prev->next = newNode;
+	plist->tail->prev->pNext = newNode;
 
-	newNode->next = plist->tail;
+	newNode->pNext = plist->tail;
 	plist->tail->prev = newNode;
 
 	(plist->numOfData)++;
@@ -32,20 +32,20 @@ void LInsert(List * plist, Data data)
 
 int LFirst(List * plist, Data * pdata)
 {
-	if(plist->head->next == plist->tail)
+	if(plist->head->pNext == plist->tail)
 		return FALSE;
 
-	plist->cur = plist->head->next;
+	plist->cur = plist->head->pNext;
 	*pdata = plist->cur->data;
 	return TRUE;
 }
 
 int LNext(List * plist, Data * pdata)
 {
-	if(plist->cur->next == plist->tail)
+	if(plist->cur->pNext == plist->tail)
 		return FALSE;
 
-	plist->cur = plist->cur->next;
+	plist->cur = plist->cur->pNext;
 	*pdata = plist->cur->data;
 	return TRUE;
 }
@@ -55,8 +55,8 @@ Data LRemove(List * plist)
 	Node * rpos = plist->cur;
 	Data remv = rpos->data;
 
-	plist->cur->prev->next = plist->cur->next;
-	plist->cur->next->prev = plist->cur->prev;
+	plist->cur->prev->pNext = plist->cur->pNext;
+	plist->cur->pNext->prev = plist->cur->prev;
 
 	plist->cur = plist->cur->prev;    // cur의 위치를 재조정
 
