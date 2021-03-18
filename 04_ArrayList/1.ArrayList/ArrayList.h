@@ -8,7 +8,8 @@
 #define FAIL 0
 
 /* ArrayList 의 데이터 정의 */
-#define LIST_LEN	4
+//#define LIST_LEN	4
+#define LIST_LEN	30000    // 프로파일링용
 
 typedef int Data;     // 데이터는 int
 

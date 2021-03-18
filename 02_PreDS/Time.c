@@ -19,20 +19,19 @@ int main()
 	{
 		// 방법: time.h 의 time(NULL) 사용
 		time_t start, end;
-		double result;
-		int i, j;
-		int sum = 0;
 		printf("time() 측정시작\n");
-		start = time(NULL); // 시간 측정 시작
+		start = time(NULL); // 시간 측정 시작, 현재 시간측정
 
-		for (i = 0; i < 100000; i++) {
-			for (j = 0; j < 10000; j++) {
+		int n = 10;   // 30000, 60000 .. 테스트 해보자. 얼마나 시간이 걸리나?
+		int sum = 0;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
 				sum += i * j;
 			}
 		}
 
 		end = time(NULL); // 시간 측정 끝
-		result = (double)(end - start);
+		double result = (double)(end - start); // 경과시간
 		printf("%f s\n", result); //결과 출력
 	}
 

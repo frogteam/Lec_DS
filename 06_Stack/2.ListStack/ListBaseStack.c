@@ -11,46 +11,48 @@ void stack_init(Stack * pstack)
 	pstack->pTop = NULL;
 }
 
+// 스택이 비었는지 확인
 int stack_is_empty(Stack * pstack)
 {
-	if(pstack->pTop == NULL)
-		return SUCCESS;
-	else
-		return FAIL;
+	if(pstack->pTop == NULL) return SUCCESS;
+
+	return FAIL;
 }
 
+// top 에 데이터 추가 (push)
 int stack_push(Stack * pstack, Data data)
 {
 	Node *newNode = (Node*)malloc(sizeof(Node));
 	memset(newNode, 0, sizeof(Node));
-
 	newNode->data = data;
-	newNode->pNext = pstack->pTop;
 
+	// 노드를 스택에 추가
+	newNode->pNext = pstack->pTop;
 	pstack->pTop = newNode;
+
 	return SUCCESS;
 }
 
 int stack_pop(Stack * pstack, Data *pData)
 {
-	Node *pCurrent;
-
 	if(stack_is_empty(pstack)) {
 		printf("Empry Stack");
 		return FAIL;
 	}
 
+	Node *pCurrent = pstack->pTop;   // 삭제할 노드 포인터 기억
+
 	if(pData != NULL)
-		*pData = pstack->pTop->data;     // 데이터 읽기
-	
-	pCurrent = pstack->pTop;
+		*pData = pstack->pTop->data;     // 데이터 읽기 (꺼내기)
 
 	pstack->pTop = pstack->pTop->pNext;   // top 이동
+	
 	free(pCurrent);  // pop 된 노드 제거
 
 	return SUCCESS;
 }
 
+// top 의 데이터 미리보기 (peek)
 int stack_peek(Stack * pstack, Data *pData)
 {
 	if(stack_is_empty(pstack)) {
@@ -59,16 +61,16 @@ int stack_peek(Stack * pstack, Data *pData)
 	}
 
 	if(pData != NULL)
-		*pData = pstack->pTop->data;   // top 의 데이터만 리턴
+		*pData = pstack->pTop->data;   // top 의 데이터만 추출
 
 	return SUCCESS;
 }
 
 void stack_destroy(Stack *pStack)
 {
-	// 데이터 pop
+	// 스택이 다 비어질때까지 pop 시키기
 	while (!stack_is_empty(pStack))
 	{
-		stack_pop(pStack, NULL);
+		stack_pop(pStack, NULL); 
 	}
 }

@@ -20,21 +20,21 @@ int main(int argc, char** argv)
 
 		struct Student stu1;
 
-		// 구조체 멤버 접근  :  멤버접근연산자 (memeber access operator) .(dot) 사용
+		// 구조체 변수로 멤버 접근  :  멤버접근연산자 (memeber access operator) .(dot) 사용
 		stu1.age = 10;
 		stu1.gender = 'F';
+		printf("%d, %c\n", stu1.age, stu1.gender);
 
 
 		// 구조체 포인터
 		struct Student *pStu;
 		pStu = &stu1;
 
-		// 구조페 포인터로 멤버 접근 : -> (arrow operator) 사용
-		pStu->age = 10;
+		// 구조체 포인터로 멤버 접근 : -> (arrow operator) 사용
+		pStu->age = 23;
 		pStu->gender = 'M';
 
-		printf("%d, %d\n", stu1.age, stu1.gender);
-		printf("%d, %d\n", pStu->age, pStu->gender);
+		printf("%d, %c\n", pStu->age, pStu->gender);
 	}
 
 	// 구조체의 '정의'도 블럭 안에서 소멸된다

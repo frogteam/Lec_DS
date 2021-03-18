@@ -45,7 +45,7 @@ int list_hasNext(List *pList);  // 데이터 조회 : 다음번 있나?
 
 int list_get(List* pList, int n, Data *pData);   // 데이터 조회 : n번째 데이터 값 읽기
 
-// insert
+
 int list_insert(List* pList, int n, Data data);   // 데이터 삽입: n번째 위치에 데이터 삽입
 
 #endif

@@ -47,7 +47,7 @@ int main(int argc, char** argv)
 
 	}
 
-	printf("\n");
+	printf("\nstrtok() 으로 delimeter 도 토큰으로 뽑을수 있나?\n");
 	{
 		char str[40] = "10-20/100+1";
 				//"10 + 20 * 100"
@@ -98,7 +98,7 @@ int main(int argc, char** argv)
 				printf("%d: %s\n", cnt, str);
 				str += strspn(str, delim); // skip separator
 			}
-		} while (str && *str);
+		} while (str && *str);   // str 도 NULL 이 아니고 *str 도 \0 이 아니면 계속..
 
 		printf("There are %d words\n", cnt);
 	}

@@ -75,7 +75,7 @@ int main(int argc, char** argv)
 		for (i = 0; i < 100; i++)
 		{
 			arr = (int*)malloc(sizeof(int) * len);
-			_sleep(10);  // 0.01초단위 delay()  프로파일링 확인용
+			_sleep(50);  // 0.01초단위 delay()  프로파일링 확인용
 			//free(arr);  // 프로파일링 비교
 		}
 

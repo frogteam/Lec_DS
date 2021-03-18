@@ -43,7 +43,8 @@ int list_add(List *pList, Data data)
 	
 	pList->pTail = pNewNode;    // tail 이동
 
-	printf("[%d] 번째 데이터 %d 추가\n", pList->numData, data);
+	//printf("[%d] 번째 데이터 %d 추가\n", pList->numData, data);
+
 	(pList->numData)++;     // 개수 증가
 	return TRUE;
 }
@@ -76,22 +77,23 @@ Data list_next(List *pList)
 // 
 int list_set(List *pList, int n, Data data)
 {
-	if (n >= pList->numData) 
-		return FALSE;
+	if (n >= pList->numData) return FALSE;
 
+	// head부터시작해서 n번째 노드 찾기,  iteration 사용
 	list_init_iter(pList);  // iteration 시작
-	int i = 0;
+	int i = 0;  // 현재 몇번째 노드?
 	while (list_hasNext(pList))
 	{
 		list_next(pList);
-		if (i >= n) 
-			break;
+		if (i >= n) break;  // n번째 노드 찾음! 
 		i++;
 	}
+	// 위 while 문이 끝나면 pCurrent 는 n번째 노드를 가리키고 있슴
+
+	printf("%d 번째 데이터 수정 %d  --> %d\n", n, pList->pCurrent->data, data);
 
 	pList->pCurrent->data = data;  // 데이터 수정
 
-	printf("%d 번째 데이터 수정\n", n);
 	return TRUE;
 }
 
@@ -107,38 +109,38 @@ int list_remove(List *pList, int n)
 	if (n >= pList->numData)
 		return FALSE;
 
-	// n번째  위치를 찾아야 하는데
-	// 직전 위치도 알아야 한다.
+	// n번째 노드 찾기....
+	// 이전 노드(previous node) 또한 알아야 한다.
 	list_init_iter(pList);  // iteration 시작
 	int i = 0;
-	Node *pPrev = NULL;
+	Node *pPrev = NULL;  // 이전 노드를 가리킬 포인터
 	while (list_hasNext(pList))
 	{
-		// 
-		pPrev = pList->pCurrent;
-		list_next(pList);
-		if (i >= n)
-			break;
+		pPrev = pList->pCurrent; // pCurrent 를 이동하기 전의 pCurrent 값을 이전노드 로 기억해야 한다
+		list_next(pList);    // pCurrent 이동
+		if (i >= n)	break;
 		i++;
 	}
 
-	// 이미 위에서 pCurrent 는 이동했다.
+	// 위 while 문이 끝나면 
+	// pCurrent (n번째 노드), pPrev(n-1번째 노드) 가 결정됨.
+
 	// 순서 잘 생각해야 한다.  순서 바뀌면 엉망된다.
 
-	Node *tmp = pPrev->pNext;  // 현재 커런트
-
-	// 삭제가 매우 단순 (배열에 비해)
+	// 삭제진행: 매우 단순 (배열에 비해)
 	pPrev->pNext = pList->pCurrent->pNext;
 
 	// 만약 tail 이 삭제 데이터였다면 tail값도 수정해야 한다
-	if (tmp == pList->pTail)
-		pList->pTail = pPrev;
+	if (pList->pCurrent == pList->pTail)
+		pList->pTail = pPrev;  // tail 을 이전 노드로 이동
 
-	// Node 동적 할당 반.드.시 해제
-	free(tmp);
+	// n번째 노드삭제 동적 메모리 할당 해제! 꼭!
+	free(pList->pCurrent);
 
 	pList->numData--;  // 리스트 size 감소
-	printf("%d 번째 데이터 삭제\n", n);
+	
+	//printf("%d 번째 데이터 삭제\n", n);
+	
 	return TRUE;
 }
 
@@ -161,7 +163,7 @@ int list_get(List* pList, int n, Data *pData)
 	// 매개변수에 값 담아줌
 	*pData = pList->pCurrent->data;
 
-	printf("get %d 번째 데이터 %d\n", n, *pData);
+	//printf("get %d 번째 데이터 %d\n", n, *pData);
 
 	return TRUE;
 }
@@ -183,4 +185,56 @@ void list_destroy(List *pList)
 	pList->pTail = NULL;
 	pList->numData = 0;
 	printf("리스트 소멸\n");
+}
+
+// 데이터 삽입: n번째 위치에 데이터 삽입
+// 맨 뒤에 삽입하는 것도 허용하기.
+int list_insert(List* pList, int n, Data data)
+{
+	if (n > pList->numData) return FALSE;  // >= 이 아니라 > 이다!
+
+
+	// 새로운 node 생성
+	Node *pNewNode = (Node*)malloc(sizeof(Node));
+	memset(pNewNode, 0, sizeof(Node));
+	pNewNode->data = data;
+
+	
+	if (pList->numData == 0)  // 첫번째 데이터인 경우
+	{
+		pList->pHead->pNext = pNewNode;
+		pList->pTail = pNewNode;
+	} 
+	else if (n == pList->numData)  // 맨 끝에 추가면
+	{
+		pList->pTail->pNext = pNewNode;
+		pList->pTail = pNewNode;
+	}
+	else
+	{
+		// n번째 노드 찾기....
+		// 이전 노드(previous node) 또한 알아야 한다.
+		list_init_iter(pList);  // iteration 시작
+		int i = 0;
+		Node *pPrev = NULL;  // 이전 노드를 가리킬 포인터
+		while (list_hasNext(pList))
+		{
+			pPrev = pList->pCurrent; // pCurrent 를 이동하기 전의 pCurrent 값을 이전노드 로 기억해야 한다
+			list_next(pList);    // pCurrent 이동
+			if (i >= n)	break;
+			i++;
+		}
+
+		// 위 while 문이 끝나면 
+		// pCurrent (n번째 노드), pPrev(n-1번째 노드) 가 결정됨.
+
+		// 삽입동작 수행
+		pPrev->pNext = pNewNode;  // 이전 노드는 새로운 노드를 가리키고
+		pNewNode->pNext = pList->pCurrent;  // 새로운 노드는 
+	}
+
+	//printf("[%d] 번째 데이터 %d 삽입\n", n, data);
+	
+	(pList->numData)++;     // 개수 증가
+	return TRUE;
 }

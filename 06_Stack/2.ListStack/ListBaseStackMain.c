@@ -9,7 +9,7 @@
 int main(void)
 {
 	Stack stack; 
-	int data;
+	Data data;
 
 	stack_init(&stack); // Stack의 생성 및 초기화
 
@@ -19,7 +19,12 @@ int main(void)
 	stack_push(&stack, 5);
 
 	// 데이터 pop
-	while(!stack_is_empty(&stack))
+	stack_pop(&stack, &data);
+	printf("pop--> %d\n", data);  // 5
+	stack_pop(&stack, &data);
+	printf("pop--> %d\n", data);  // 4
+
+	while(!stack_is_empty(&stack))   // 3   2    1 
 	{
 		stack_pop(&stack, &data);
 		printf("%d ", data); 

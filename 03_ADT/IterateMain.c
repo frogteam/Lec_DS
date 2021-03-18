@@ -37,8 +37,8 @@ int iter_hasNext(IterArray* p)
 
 int iter_next(IterArray* p)
 {
-	p->curPosition++;                 // position 이 next로 먼저 증가하고
-	return p->arr[p->curPosition];    // 그 다음에 값을 가져온다.
+	p->curPosition++;   // 우선! curPosition 이 next 로 +1 증가
+	return p->arr[p->curPosition];   // curPosition이 가리키는 곳의 값을 추출
 }
 
 int main()
@@ -46,11 +46,12 @@ int main()
 	IterArray data = {{10, 20, 30, 40}, -1};
 	iter_init(&data);
 
-	while(iter_hasNext(&data))
+	while(iter_hasNext(&data)) // 더 추출할 데이터 있나?
 	{
 		printf("%d ", iter_next(&data));
 	}
 	printf("\n");
+	// 일단 실행!
 
 	// 다시 iterator 돌리려 하면..
 	while(iter_hasNext(&data))
