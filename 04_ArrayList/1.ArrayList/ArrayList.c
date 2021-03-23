@@ -69,7 +69,7 @@ int list_set(List *pList, int n, Data data)
 	}
 	
 	printf("%d 번째 데이터 수정 %d --> %d\n", n, pList->arr[n], data);
-	pList->arr[n] = data;
+	pList->arr[n] = data;  // 수정
 	return SUCCESS;
 }
 
@@ -79,15 +79,28 @@ int list_length(List *pList)
 	return pList->numData;  // 솔직히 배열이니까 numData 유지중
 }
 
+
+
+// 데이터 조회 : n번째 데이터 값 읽기
+int list_get(List* pList, int n, Data *pData)
+{
+	if (n >= pList->numData) return FAIL;
+
+	*pData = pList->arr[n];  // 데이터 값,  포인터로 리턴
+
+	return SUCCESS;
+}
+
 // 데이터 삭제
 int list_remove(List *pList, int n)
 {
-	// 배열이니까 중간 삭제하면 뒤의 것도 당겨야 한다.
 	if (n >= pList->numData)
 	{
 		printf("%d번째 데이터 삭제 실패\n", n);
 		return FAIL;
 	}
+
+	// 배열이니까 중간 삭제하면 뒤의 것도 당겨야 한다.
 
 	int i;
 	for (i = n; i < pList->numData - 1; i++)
@@ -97,17 +110,7 @@ int list_remove(List *pList, int n)
 
 	pList->numData--;  // 리스트 size 감소
 
-	//printf("%d 번째 데이터 삭제\n", n);
-	
-	return SUCCESS;
-}
-
-// 데이터 조회 : n번째 데이터 값 읽기
-int list_get(List* pList, int n, Data *pData)
-{
-	if (n >= pList->numData) return FAIL;
-
-	*pData = pList->arr[n];  // 데이터 값,  포인터로 리턴
+					   //printf("%d 번째 데이터 삭제\n", n);
 
 	return SUCCESS;
 }
@@ -122,7 +125,7 @@ int list_insert(List* pList, int n, Data data)
 		return FAIL;
 	}
 
-	// '중간' 및 '끝' 삽입은 허용
+	// n 유효범위 검증 '중간' 및 '끝' 삽입은 허용
 	if (n > pList->numData)
 	{
 		printf("%d 번째 위치에 삽입 불가\n", n);

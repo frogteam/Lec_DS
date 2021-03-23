@@ -38,7 +38,7 @@ int main()
 	printList(&myList);
 
 	// 데이터 수정
-	list_set(&myList, 0, 40);
+	list_set(&myList, 0, 40);  // 0번째 데이터를 100 --> 40으로 수정
 	list_set(&myList, 1, 30);
 	list_set(&myList, 4, 30);  // 수정 실패
 	printList(&myList);
