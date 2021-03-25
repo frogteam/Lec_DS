@@ -28,7 +28,7 @@ typedef struct _linkedList
 }LinkedList;
 
 
-/* LinkedList 동작 */
+/* List 동작 */
 typedef LinkedList List;
 
 void list_init(List *pList);   // 리스트 초기화  

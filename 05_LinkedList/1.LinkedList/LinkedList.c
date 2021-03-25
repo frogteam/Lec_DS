@@ -45,7 +45,7 @@ int list_add(List *pList, Data data)
 
 	//printf("[%d] 번째 데이터 %d 추가\n", pList->numData, data);
 
-	(pList->numData)++;     // 개수 증가
+	(pList->numData)++;     // 데이터 개수 증가
 	return TRUE;
 }
 
@@ -59,7 +59,7 @@ void list_init_iter(List *pList)
 // 데이터 조회 : 다음번 있나?
 int list_hasNext(List *pList)
 {
-	if (pList->pCurrent->pNext == NULL)   // '다음것' 여부를 체크한다.
+	if (pList->pCurrent->pNext == NULL)  // '다음노드' 존재 여부를 체크한다
 		return FALSE;
 
 	return TRUE;
@@ -73,8 +73,7 @@ Data list_next(List *pList)
 	return result;
 }
 
-// 데이터 수정
-// 
+// n번째 데이터 수정
 int list_set(List *pList, int n, Data data)
 {
 	if (n >= pList->numData) return FALSE;
@@ -103,14 +102,15 @@ int list_length(List *pList)
 	return pList->numData;
 }
 
-// 데이터 삭제
+// n번째 데이터 삭제
 int list_remove(List *pList, int n)
 {
 	if (n >= pList->numData)
 		return FALSE;
 
-	// n번째 노드 찾기....
-	// 이전 노드(previous node) 또한 알아야 한다.
+	// n번째 노드 삭제하려면
+	// n번째 뿐 아니라 n-1 번째 노드 정보도 알아야 한다
+	// 즉. 이전 노드(previous node) 또한 알아야 한다.
 	list_init_iter(pList);  // iteration 시작
 	int i = 0;
 	Node *pPrev = NULL;  // 이전 노드를 가리킬 포인터
@@ -159,8 +159,9 @@ int list_get(List* pList, int n, Data *pData)
 			break;
 		i++;
 	}
+	// 위 while문이 끝나면 pCurrent 값은 n번째 node를 가리키고 있다.
 
-	// 매개변수에 값 담아줌
+	// 매개변수에 n번째 노드 데이터 담아줌
 	*pData = pList->pCurrent->data;
 
 	//printf("get %d 번째 데이터 %d\n", n, *pData);
@@ -178,8 +179,8 @@ void list_destroy(List *pList)
 	while (list_hasNext(pList))
 	{
 		pPrev = pList->pCurrent;
-		list_next(pList);
-		free(pPrev);
+		list_next(pList);  // 일단 pCurrent 다음으로 이동
+		free(pPrev);  // 노드 삭제
 	}
 	pList->pHead = NULL;
 	pList->pTail = NULL;
@@ -207,13 +208,13 @@ int list_insert(List* pList, int n, Data data)
 	} 
 	else if (n == pList->numData)  // 맨 끝에 추가면
 	{
-		pList->pTail->pNext = pNewNode;
+		pList->pTail->pNext = pNewNode; // add() 와 동일
 		pList->pTail = pNewNode;
 	}
 	else
 	{
-		// n번째 노드 찾기....
-		// 이전 노드(previous node) 또한 알아야 한다.
+		// n번째 노드에 삽입하려면
+		// n-1번째 노드, 직전노드(previoud node) 또한 알아야 한다.
 		list_init_iter(pList);  // iteration 시작
 		int i = 0;
 		Node *pPrev = NULL;  // 이전 노드를 가리킬 포인터
@@ -230,11 +231,11 @@ int list_insert(List* pList, int n, Data data)
 
 		// 삽입동작 수행
 		pPrev->pNext = pNewNode;  // 이전 노드는 새로운 노드를 가리키고
-		pNewNode->pNext = pList->pCurrent;  // 새로운 노드는 
+		pNewNode->pNext = pList->pCurrent;   // 새로운 노드는 기존의 n번째 노드를 가리키면 된다
 	}
 
 	//printf("[%d] 번째 데이터 %d 삽입\n", n, data);
 	
-	(pList->numData)++;     // 개수 증가
+	(pList->numData)++;     // 데이터 개수 증가
 	return TRUE;
 }

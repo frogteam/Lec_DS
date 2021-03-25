@@ -28,11 +28,11 @@ int main()
 	printList(&myList);
 	list_add(&myList, 100);   // 데이터 추가
 	printList(&myList);
-	list_add(&myList, 100);   // 데이터 추가
+	list_add(&myList, 120);   // 데이터 추가
 	list_add(&myList, 70);    // 데이터 추가
-	printList(&myList);
+	printList(&myList);      // [100 50 100 120 70]
 
-	// get()
+	// 데이터 조회, get()
 	Data data;
 	if(list_get(&myList, 4, &data))
 		printf("  data=%d\n", data);
@@ -41,35 +41,32 @@ int main()
 
 
 	// 데이터 수정
+	// 직전까지 -> [100 50 100 120 70]
 	list_set(&myList, 0, 40);
 	list_set(&myList, 1, 30);
 	list_set(&myList, 4, 30); 
-	printList(&myList);
+	printList(&myList);  // [40, 30, 100, 120, 30]
 
 	// 데이터 개수
 	printf("데이터 개수는 %d\n", list_length(&myList));
 
-
+	// [40, 30, 100, 120, 30]
 	// 데이터 삭제
 	list_remove(&myList, 2);
-	printList(&myList);
-
+	printList(&myList);   // [40, 30, 120, 30]
 	list_remove(&myList, 2);
-	printList(&myList);
-
+	printList(&myList);   // [40, 30, 30]
 	list_remove(&myList, 0);
-	printList(&myList);
+	printList(&myList);   // [30, 30]
+	list_remove(&myList, 2);  // 실패
+	printList(&myList);    // [30, 30]
 
-	list_remove(&myList, 2);
-	printList(&myList);
+	list_remove(&myList, 0); // [30]
+	list_remove(&myList, 0); // []
+	list_remove(&myList, 0);  // 실패
+	printList(&myList);   // []
 
-
-	list_remove(&myList, 0);
-	list_remove(&myList, 0);
-	list_remove(&myList, 0);
-	printList(&myList);
-
-	printf("데이터 개수는 %d\n", list_length(&myList));
+	printf("데이터 개수는 %d\n", list_length(&myList));  // 0
 
 	// 데이터 삽입
 	list_insert(&myList, 0, 100);  
@@ -80,7 +77,7 @@ int main()
 	printList(&myList);                 // [200 400 100 ]
 	list_insert(&myList, 3, 500);
 	printList(&myList);				// [200 400 100 500]
-	list_insert(&myList, 6, 500);
+	list_insert(&myList, 6, 500);   // 실패
 	printList(&myList);				// [200 400 100 500]
 	list_insert(&myList, 3, 600);
 	printList(&myList);				// [200 400 100 600 500]

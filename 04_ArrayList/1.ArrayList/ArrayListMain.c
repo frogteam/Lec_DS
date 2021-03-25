@@ -121,7 +121,7 @@ int main()
 		start = clock(); //시간 측정 시작
 		for (unsigned int i = 0; i < test_size; i++)
 		{
-			list_insert(&myList, 0, i);
+			list_insert(&myList, 0, i);  // 0번째에 insert!
 		}
 		end = clock(); //시간 측정 끝
 		printf("현재 리스트 size : %d\n", list_length(&myList));
