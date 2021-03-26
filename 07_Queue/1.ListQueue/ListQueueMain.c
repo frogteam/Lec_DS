@@ -4,6 +4,8 @@
 #include <conio.h>   //_getch, putch ..  MS기반 C 비표준 함수
 #include <time.h>    // clock ..  시간 날짜 함수
 #pragma warning(disable:4996)   // scanf() 등 전통 C 함수중 버퍼 문제
+#pragma warning(disable:4477)  // unsigned ↔ signed  관련 에러메세지 무시
+
 #include "ListQueue.h"
 
 int main(void)
@@ -17,12 +19,14 @@ int main(void)
 	queue_enq(&q, 1);  queue_enq(&q, 2);
 	queue_enq(&q, 3);  queue_enq(&q, 4);
 	queue_enq(&q, 5);
+	// front --> [1->2->3->4->5] <-- back
+
 
 	// 데이터 꺼내기 dequeue
 	while (!queue_is_empty(&q))
 	{
 		queue_deq(&q, &data);
-		printf("%d ", data);
+		printf("deq --> %d\n", data); // 결과  1 2 3 4 5 순서
 	}
 
 	queue_destroy(&q);  // 큐 제거

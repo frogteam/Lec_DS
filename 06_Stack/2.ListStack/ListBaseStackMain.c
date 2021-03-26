@@ -30,6 +30,16 @@ int main(void)
 		printf("%d ", data); 
 	}
 
+	for (int i = 100; i <= 1000; i += 100) {
+		stack_push(&stack, i);
+	}
+
+	while (!stack_is_empty(&stack))  // 1000 900 ... 100
+	{
+		stack_pop(&stack, &data);
+		printf("pop--> %d\n", data);
+	}
+
 	stack_destroy(&stack);  // 스택 제거
 
 	printf("\n아무키나 입력하면 프로그램 종료됩니다\n");

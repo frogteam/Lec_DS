@@ -18,20 +18,21 @@ int queue_is_empty(Queue * pq)
 
 int queue_enq(Queue * pq, Data data)
 {
-	Node * newNode = (Node*)malloc(sizeof(Node));
-	newNode->pNext = NULL;
-	newNode->data = data;
+	// 새로운 노드 생성
+	Node * pNewNode = (Node*)malloc(sizeof(Node));
+	pNewNode->pNext = NULL;
+	pNewNode->data = data;
 
-	// 다 비어 있을때와 그렇지 않을때 구분 필요
+	// 큐가 비어있을때와 그렇지 않을때 구분
 	if(queue_is_empty(pq))   
 	{
-		pq->pFront = newNode;
-		pq->pRear = newNode;
+		pq->pFront = pNewNode;
+		pq->pRear = pNewNode;
 	}
 	else
 	{
-		pq->pRear->pNext = newNode;
-		pq->pRear = newNode;
+		pq->pRear->pNext = pNewNode;
+		pq->pRear = pNewNode;
 	}
 
 	return SUCCESS;
@@ -39,17 +40,17 @@ int queue_enq(Queue * pq, Data data)
 
 int queue_deq(Queue * pq, Data *pData)
 {
-	Node * delNode;
-
 	if(queue_is_empty(pq))
 	{
 		printf("Queue Memory Error!");
 		return FAIL;
 	}
 
+	 
+
 	if(pData != NULL)
 		*pData = pq->pFront->data;
-	delNode = pq->pFront;
+	Node * delNode = pq->pFront;  // 삭제할 노드 기억
 	pq->pFront = pq->pFront->pNext;
 
 	free(delNode);

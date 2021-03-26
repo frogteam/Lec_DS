@@ -4,6 +4,8 @@
 #define SUCCESS	1
 #define FAIL	0
 
+/* 큐의 ADT */
+
 /* 큐 의 데이터 */
 typedef int Data;
 
