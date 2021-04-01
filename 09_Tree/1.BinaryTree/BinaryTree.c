@@ -11,13 +11,13 @@
 // 트리 노드 생성
 BTreeNode * btree_make_node(void)
 {
-	BTreeNode *newNode = (BTreeNode*)malloc(sizeof(BTreeNode));
+	BTreeNode *pNewNode = (BTreeNode*)malloc(sizeof(BTreeNode));
 
-	newNode->pLeft = NULL;
-	newNode->pRight = NULL;
-	newNode->data = 0;
+	pNewNode->pLeft = NULL;
+	pNewNode->pRight = NULL;
+	pNewNode->data = 0;
 
-	return newNode;
+	return pNewNode;
 }
 
 BTData btree_get_data(BTreeNode *bt)
@@ -40,67 +40,64 @@ BTreeNode * btree_get_right(BTreeNode * bt)
 	return bt->pRight;
 }
 
-void btree_make_left(BTreeNode *main, BTreeNode *sub)
+void btree_make_left(BTreeNode *bt, BTreeNode *sub)
 {
-	if(main->pLeft != NULL)
-		free(main->pLeft);   // ???????
+	if(bt->pLeft != NULL)
+		free(bt->pLeft);   // ???????
 
-	main->pLeft = sub;
+	bt->pLeft = sub;
 }
 
-void btree_make_right(BTreeNode * main, BTreeNode * sub)
+void btree_make_right(BTreeNode * bt, BTreeNode * sub)
 {
-	if(main->pRight != NULL)
-		free(main->pRight);
+	if(bt->pRight != NULL)
+		free(bt->pRight);
 
-	main->pRight = sub;
+	bt->pRight = sub;
 }
 
+// Traversing--------------------------------------------------------
 void btree_preorder_traverse(BTreeNode *bt, fnVisitNode action)
 {
-	if (bt == NULL)  // 재귀종료
-		return;  
+	if (bt == NULL) return; // 재귀종료
 
 	// C -> L -> R
-	action(bt->data);
-	btree_preorder_traverse(bt->pLeft, action);
-	btree_preorder_traverse(bt->pRight, action);
+	action(bt->data);  // C
+	btree_preorder_traverse(bt->pLeft, action);  // L : 재귀호출
+	btree_preorder_traverse(bt->pRight, action);  // R : 재귀호출
 }
 void btree_inorder_traverse(BTreeNode *bt, fnVisitNode action)
 {
-	if (bt == NULL)
-		return;   // 재귀 종료
+	if (bt == NULL) return;   // 재귀 종료
 
 	// L -> C -> R
-	btree_inorder_traverse(bt->pLeft, action);
-	action(bt->data);
-	btree_inorder_traverse(bt->pRight, action);
+	btree_inorder_traverse(bt->pLeft, action);  // L
+	action(bt->data);  // C
+	btree_inorder_traverse(bt->pRight, action); // R
 }
 void btree_postorder_traverse(BTreeNode *bt, fnVisitNode action)
 {
-	if (bt == NULL)
-		return;   // 재귀 종료
+	if (bt == NULL) return;   // 재귀 종료
 
 	// L -> R -> C
-	btree_postorder_traverse(bt->pLeft, action);
-	btree_postorder_traverse(bt->pRight, action);
-	action(bt->data);
+	btree_postorder_traverse(bt->pLeft, action); // L
+	btree_postorder_traverse(bt->pRight, action); // R
+	action(bt->data); // C
 }
 
 
 void btree_delete(BTreeNode *bt)
 {
-	if (bt == NULL)
-		return;
+	if (bt == NULL) return;
 
-	// 삭제는 post order 방식으로 지워야 한다
+	// 삭제는 post order 방식(L -> R -> C) 순서로 지워야 한다
 
 	// 자기 자신을 지우기 전에 left, right 부터 지워야 한다
-	btree_delete(bt->pLeft);
-	btree_delete(bt->pRight);
+	btree_delete(bt->pLeft);  // L
+	btree_delete(bt->pRight); // R
 
 	// 자기자신 삭제
-	printf("노드 삭제 : %d \n", bt->data);
+	printf("노드 삭제 : %d \n", bt->data);  // C
 	free(bt);
 }
 

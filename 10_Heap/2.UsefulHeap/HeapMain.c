@@ -26,6 +26,11 @@ int main(void)
 	//heap_insert(&heap, 9);
 	//heap_insert(&heap, 20);
 	//heap_insert(&heap, 30);
+
+	//      (30)
+	//     ¢×  ¢Ù
+	//   (9)    (20)
+
 	//printf("%d \n", heap_delete(&heap));
 
 

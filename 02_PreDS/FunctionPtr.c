@@ -38,14 +38,16 @@ void doAction(int a, int b, void(*fnOp)(int, int))
 }
 
 
+typedef void fnAction(int, int);  // 함수포인터 타입정의
+
 int main(int argc, char** argv)
 {
 	{
 		fnPlus(10, 20);
 
-		printf("myFunc -> %p\n", fnPlus);  // 함수이름 -> 포인터
+		printf("fnPlus -> %p\n", fnPlus);  // 함수이름 -> 함수포인터
 
-		// 포인터 참조가 곧 호출이다
+		// 함수포인터 참조가 곧 '호출' 동작이다
 		// 참조 연산자 
 
 		(*fnPlus)(30, 40);
@@ -53,7 +55,7 @@ int main(int argc, char** argv)
 		// 함수 포인터 타입 변수 선언 가능
 		// int *p;   <-- int 에 대한 포인터
 		// void 리턴하고 (int, int) 매개변수 받는 함수에 대한 함수 포인터?
-		void(*fnOp)(int, int);  // <-- fnPtr 이라는 '함수포인터 선언'
+		void(*fnOp)(int, int);  // <-- fnOp 이라는 '함수포인터 변수 선언'
 						
 		// 포인터 대입 가능!
 		fnOp = fnPlus;
