@@ -27,9 +27,15 @@ int main(void)
 	//heap_insert(&heap, 20);
 	//heap_insert(&heap, 30);
 
+	// MAX-HEAP 
 	//      (30)
 	//     ¢×  ¢Ù
 	//   (9)    (20)
+
+	// MIN-HEAP 
+	//      (9)
+	//     ¢×  ¢Ù
+	//   (20)   (30)
 
 	//printf("%d \n", heap_delete(&heap));
 

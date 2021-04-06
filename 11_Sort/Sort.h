@@ -15,6 +15,4 @@ void BubbleSort(int arr[], int n);     // 버블 정렬
 void SelectionSort(int arr[], int n);   // 선택 정렬
 void InsertionSort(int arr[], int n);   // 삽입 정렬
 
-
-
 #endif

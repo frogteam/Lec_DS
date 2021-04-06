@@ -103,7 +103,9 @@ HData heap_delete(Heap * ph)
 
 		// 자식의 우선순위가 더 크다면,  그 자식이 부모의 자리로 교체
 		ph->heapArr[idx] = ph->heapArr[childIdx];
-		idx = childIdx;  // 다음 비교를 위헤 idx를 좀전의 자식위치로 내리기
+
+		// 다음 비교를 위해 idx를 좀전의 자식위치로 내리기
+		idx = childIdx;  
 	}
 
 	// while이 다 끝난 그 자리가, 마지막 노드가 위치할 곳이다.
