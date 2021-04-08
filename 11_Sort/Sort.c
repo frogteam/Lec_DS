@@ -71,9 +71,9 @@ void BubbleSort(int arr[], int n)
 			// 1. 인접한 두개 비교
 			if (arr[j] > arr[j + 1])  // 2. 크기가 반대라면   << 비교 >>
 			{                         // 값 교환(swap)
-				temp = arr[j];       // << 이동 >>
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
+				temp = arr[j];       // << 이동 >>  한 사이클당 최대 (n-i) -1 번 발생
+				arr[j] = arr[j + 1]; // << 이동 >>
+				arr[j + 1] = temp;   // << 이동 >>
 			}
 		}
 		// 중간과정 출력
@@ -105,9 +105,9 @@ void SelectionSort(int arr[], int n)
 		// 그러면 이제 i 값과 min_idx 의 값을 교환하면 된다.
 		/* << 교환 >> */
 		if (i != min_idx) {  // i 보다 작은것이 없었다면 pass
-			temp = arr[i];
-			arr[i] = arr[min_idx];
-			arr[min_idx] = temp;
+			temp = arr[i];          // << 이동 >>  <-- 1cycle 당 많아야 1회 발생
+			arr[i] = arr[min_idx];  // << 이동 >>
+			arr[min_idx] = temp;    // << 이동 >>
 		}
 
 		// 중간단계 출력
@@ -124,18 +124,18 @@ void InsertionSort(int arr[], int n)
 
 	for (i = 1; i < n; i++)   // i = 1부터 시작!
 	{
-		insData = arr[i];   // i번째 데이터 선택(insData에 임시 저장), 나중에 위치 정하면 그 자리에 '삽입'
+		insData = arr[i];   // i번째 데이터 선택(insData에 임시 저장), 나중에 INSERT 될 위치 정해지면 그 자리에 '삽입'
 
 		for (j = i - 1; j >= 0; j--)  // j 를 i 왼쪽부터 왼쪽으로 검색해 나감
 		{
 			if (arr[j] > insData)   // 삽입하려는 데이터 insData 보다  j번째 데이터가 크면 << 비교 >>
 				arr[j + 1] = arr[j];    // j번째 데이터를 우측으로 한칸씩 이동 << 이동 >>
 			else
-				break;   // 삽입 위치 찾았으니 멈춤!
+				break;  // 멈춘 그곳이 삽입될 위치.  삽입위치 찾았으니 멈춤
 		}
 
 		// 결정된 j 위치의 바로 오른쪽이 삽입(INSERT) 될 위치
-		arr[j + 1] = insData;  // 찾은 위치에 정렬 대상 삽입!
+		arr[j + 1] = insData;  // 찾은 위치에 정렬 대상 삽입!  << 이동 >>  1 cycle 당 1번
 
 		//  중간과정 출력
 		//printArr(arr, n);

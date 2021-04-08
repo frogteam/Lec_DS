@@ -69,7 +69,7 @@ int main(int argc, char** argv)
 		genRandom(srcArr, DATA_SIZE, DATA_SIZE);  // 랜덤으로 생성
 		int workArr[DATA_SIZE];
 
-		memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
+		memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);  // workArr <- srcArr 배열 복사
 		chkTimeLap(BubbleSort, workArr, DATA_SIZE, "버블정렬");
 
 		memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
@@ -86,8 +86,8 @@ int main(int argc, char** argv)
 	//	// 랜덤 배열
 	//	int srcArr[DATA_SIZE];
 	//	genRandom(srcArr, DATA_SIZE, DATA_SIZE);  // #1 램덤
-	//	//genIncSorted(srcArr, DATA_SIZE);     // #2 오름차순 
-	//	//genDecSorted(srcArr, DATA_SIZE);  // #3 내림차순
+	//	//genIncSorted(srcArr, DATA_SIZE);     // #2 오름차순 이미 정렬된 배열
+	//	//genDecSorted(srcArr, DATA_SIZE);  // #3 내림차순 역정렬된 배열
 	//	int workArr[DATA_SIZE];
 
 	//	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
@@ -101,12 +101,25 @@ int main(int argc, char** argv)
 	//}
 
 
-	//memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
-	//Heap hp;
-	//heap_init(&hp, DATA_SIZE);
-	//chkTimeLap(HeapSort, workArr, DATA_SIZE, "힙 정렬");
-	//heap_destroy(&hp);
-	//printArr(workArr, DATA_SIZE);
+	//printf("\nHeapSort\n");
+	//{
+	//	int srcArr[DATA_SIZE];
+	//	genRandom(srcArr, DATA_SIZE, DATA_SIZE);
+
+	//	int workArr[DATA_SIZE];
+	//	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
+
+	//	Heap hp;
+	//	heap_init(&hp, DATA_SIZE);
+
+	//	printArr(workArr, DATA_SIZE); // 정렬전
+
+	//	chkTimeLap(HeapSort, workArr, DATA_SIZE, "힙정렬");
+
+	//	printArr(workArr, DATA_SIZE); // 정렬후
+
+	//	heap_destroy(&hp);
+	//}
 
 	// 퀵 정렬 (Quick Sort)
 	//memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);

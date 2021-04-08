@@ -3,8 +3,8 @@
 
 void printArr(int arr[], int n);
 void genRandom(int arr[], int n, int bound);  // 무작위배열 0~bound 범위 숫자 x n개
-void genIncSorted(int arr[], int n);    // 오름 차순으로 
-void genDecSorted(int arr[], int n);    // 내림 차순으로
+void genIncSorted(int arr[], int n);    // 오름 차순 배열 생성 
+void genDecSorted(int arr[], int n);    // 내림 차순 배열 생성
 
 //-------------------------------------------
 typedef void fnSort(int arr[], int n);

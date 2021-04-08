@@ -19,7 +19,7 @@ typedef struct _heap
 	fnPriorityComp * comp;
 	int numData;
 	//HData heapArr[HEAP_LEN];
-	HData *heapArr;
+	HData *heapArr;  // 동적메모리로 구현 ★
 } Heap;
 
 /*** Heap 관련 연산들 ****/

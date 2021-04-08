@@ -59,9 +59,10 @@ void heap_init(Heap *ph, int len)
 void heap_destroy(Heap *ph)
 {
 	free(ph->heapArr);
-	ph->heapArr = NULL;
-	ph->numData = 0;
-	g_hp = NULL;
+	memset(ph, 0, sizeof(Heap));
+	//ph->heapArr = NULL;
+	//ph->numData = 0;
+	//g_hp = NULL;
 }
 
 // 힙이 비어있나?

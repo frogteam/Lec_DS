@@ -12,10 +12,10 @@ void Swap(int arr[], int idx1, int idx2)
 int Partition(int arr[], int left, int right)
 {
 	int pivot = arr[left];    // 피벗의 위치는 가장 왼쪽! 
-	int low = left + 1;
-	int high = right;
+	int low = left + 1;   // 피벗 오른쪽부터 시작
+	int high = right;      // 가장 오른쪽에서부터 시작
 
-	while (low <= high)    // 교차되지 않을 때까지 반복
+	while (low <= high)    // 교차되지 않을 때가지 반복하며 low, high 이동
 	{
 		//while (pivot > arr[low])
 		//	low++;
@@ -25,15 +25,16 @@ int Partition(int arr[], int left, int right)
 
 		// low 와 high 는 개별적으로 움직인다.
 
-		// pivot 보다 큰 것을 만날때까지 low 우측 이동
+		// low 우측 이동,  pivot 보다 큰 것을 만날때까지!
 		while(pivot >= arr[low] && low <= right)  
 			low++;
 
-		// pivot 보다 작은거 만날때까지 high 좌측 이동.
+		// high 좌측 이동, pivot 보다 작은것을 만날때까지!
 		while(pivot <= arr[high] && high >= (left+1))
 			high--;
 
-		if (low <= high)    // 교차되지 않은 상태라면 Swap 실행
+		// low 와 high 가 멈추면!
+		if (low <= high)  // low, high 가 교차되지 않은 상태라면  Swap 진행
 			Swap(arr, low, high);    // low와 high가 가리키는 대상 교환
 
 		// 이 while 문이 돌때ㅁ다.
@@ -63,17 +64,17 @@ void QuickSortMain(int arr[], int n)
 }
 
 
+// 퀵정렬 동작 확인
 //int main(void)
 //{
 ////	int arr[7] = {3, 2, 4, 1, 7, 6, 5};
 //	int arr[3] = {3, 3, 3};
 //
 //	int len = sizeof(arr) / sizeof(int);
-//	int i;
 //
-//	QuickSort(arr, 0, sizeof(arr)/sizeof(int)-1);
+//	QuickSort(arr, 0, len - 1);
 //
-//	for(i=0; i<len; i++)
+//	for(int i = 0; i < len; i++)
 //		printf("%d ", arr[i]);
 //
 //	printf("\n");
