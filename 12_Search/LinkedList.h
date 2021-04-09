@@ -46,6 +46,6 @@ int list_hasNext(List *pList);  // 데이터 조회 : 다음번 있나?
 int list_get(List* pList, int n, Data *pData);   // 데이터 조회 : n번째 데이터 값 읽기
 
 // 주어진 pList 에서 data 가 담긴 Node 를 찾아서 리턴, 없으면 NULL 리턴
-Node* list_search(List *pList, int data);
+Node* list_search(List *pList, Data data);
 
 #endif

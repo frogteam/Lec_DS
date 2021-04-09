@@ -32,7 +32,7 @@ int bst_insert(BTreeNode **ppRoot, BTData data)
 
 		if (btree_get_data(curNode) > data)   // 삽입하려는 데이터가 더 작다면  currnet node 를 left 로 이동
 			curNode = btree_get_left(curNode);
-		else                          // 삽입하려는 데이터가 더 작다면  currnet node 를 right 로 이동
+		else                          // 삽입하려는 데이터가 더 크다면  currnet node 를 right 로 이동
 			curNode = btree_get_right(curNode);
 	}
 
@@ -45,10 +45,10 @@ int bst_insert(BTreeNode **ppRoot, BTData data)
 	{
 		if (data < btree_get_data(parentNode))     // 부모의 데이터보다 작다면  left 로 붙이고
 			btree_make_left(parentNode, newNode);
-		else                                  // 부모의 데이터보다 같거나 크면 right 로 붙인다
+		else                                  // 부모의 데이터보다 크면 right 로 붙인다
 			btree_make_right(parentNode, newNode);
 	}
-	else    // 새 노드가 루트 노드라면,
+	else    // 첫번째 노드의 경우, 새 노드가 루트 위치이기에 parentNode 는 NULL 인 상태다
 	{
 		*ppRoot = newNode;  // 루트 세팅!
 	}
@@ -69,13 +69,13 @@ BTreeNode* bst_search(BTreeNode *pRoot, BTData data)
 		if (data == curData)
 			return curNode;       // 발견!!!  노드 포인터 리턴하고, 탐색 종료
 
-		else if (data < curData)          // 데이터값이 currentData 보다 작다면 left 서브트리로 이동하여 탐색
+		else if (data < curData)          // 데이터값이 curData 보다 작다면 left 서브트리로 이동하여 탐색
 			curNode = btree_get_left(curNode);
-		else                            // 데이터값이 currentData 보다 같거나 크다면 right 서브트리로 이동하여 탐색
+		else                            // 데이터값이 curData 보다 크다면 right 서브트리로 이동하여 탐색
 			curNode = btree_get_right(curNode);
 	}
 
-	return NULL;
+	return NULL;  // 탐색 결과 없슴
 }
 
 // 트리에서 노드를 제거하고 제거된 노드의 주소 값을 반환한다.
@@ -83,7 +83,7 @@ BTreeNode* bst_remove(BTreeNode **ppRoot, BTData data)
 {
 	// 삭제 대상이 루트 노드인 경우를 별도로 고려해야 한다.
 
-	BTreeNode * pVRoot = MakeBTreeNode();    // 가상 루트 노드;
+	BTreeNode * pVRoot = btree_make_node();    // 가상 루트 노드;
 
 	BTreeNode * parentNode = pVRoot;    // parent node
 	BTreeNode * curNode = *ppRoot;    // current node
@@ -149,7 +149,7 @@ BTreeNode* bst_remove(BTreeNode **ppRoot, BTData data)
 
 		// 대체할 노드에 저장된 값을 삭제할 노드에 대입한다.
 		delData = btree_get_data(delNode);    // 대입 전 데이터 백업
-		SetData(delNode, btree_get_data(mNode));
+		btree_set_data(delNode, btree_get_data(mNode));
 
 		// 대체할 노드의 부모 노드와 자식 노드를 연결한다.
 		if (btree_get_left(mpNode) == mNode)
@@ -158,7 +158,7 @@ BTreeNode* bst_remove(BTreeNode **ppRoot, BTData data)
 			ChangeRightSubTree(mpNode, btree_get_right(mNode));
 
 		delNode = mNode;
-		SetData(delNode, delData);    // 백업 데이터 복원
+		btree_set_data(delNode, delData);    // 백업 데이터 복원
 	}
 
 	// 삭제된 노드가 루트 노드인 경우에 대한 처리

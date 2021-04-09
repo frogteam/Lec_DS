@@ -205,6 +205,6 @@ Node* list_search(List *pList, int data)
 			return pList->pCurrent;   // 찾으면 해당 노드 리턴
 	}
 
-	return NULL;   // 없으면 NULL
+	return NULL;   // 없으면 NULL 리턴
 }
 

@@ -8,7 +8,7 @@
 #include "BinarySearchTree.h"
 
 
-#define LEN 10000
+#define LEN 30000  
 
 void printArr(int arr[], int n)
 {
@@ -50,22 +50,22 @@ void genDecSorted(int arr[], int n)
 void shuffleArr(int arr[], int n)
 {
 	int i;
-	if (n > 1)
+	if (n > 1)  // 배열길이 2개 이상인 경우만 shuffle
 	{
 		for (i = 0; i < n - 1; i++)
 		{
+			// i 와 임의의 j번째와 swap
 			int j = i + rand() / (RAND_MAX / (n - i) + 1);
-			int t = arr[j];
+			int temp = arr[j];
 			arr[j] = arr[i];
-			arr[i] = t;
+			arr[i] = temp;
 		}
 	}
 }
 // 배열로 부터 list 생성
 void genList(List *pList, int arr[], int n)
 {
-	int i;
-	for (i = 0; i < n; i++)
+	for (int i = 0; i < n; i++)
 		list_add(pList, arr[i]);
 }
 
@@ -81,29 +81,33 @@ void genBST(BTreeNode **ppRoot, int arr[], int n)
 //-------------------------------------------------------------------------------
 typedef void* fnSearch(void *, int);   // 검색함수 타입
 
-// 특정 data 탐색 : 시간 체크
-void chkTimeLapData(fnSearch search, void *collection, int data, char *title)
-{
-	int cnt = 0;
-	clock_t start, end;
-	start = clock(); //시간 측정 시작
-	search(collection, data);  // 탐색 수행
-	end = clock();
-	printf("%s (탐색: %d) 수행결과 : %ld ms\n", title, data, end - start);
-}
+// 특정 data 하나 탐색 : 시간 체크
+//void chkTimeLapData(fnSearch search, void *collection, int data, char *title)
+//{
+//	int cnt = 0;
+//	clock_t start, end;
+//	start = clock(); //시간 측정 시작
+//	search(collection, data);  // 탐색 수행
+//	end = clock();
+//	printf("%s (탐색: %d) 수행결과 : %ld ms\n", title, data, end - start);
+//}
 
-// 여러 data 탐색 : 시간 체크
+// 여러 data 들 탐색 : 시간 체크
 void chkTimeLapArray(fnSearch search, void *collection, int arr[], int n, char *title)
 {
-	int cnt = 0;
+	int cnt = 0;   // Search 성공한 개수
 	clock_t start, end;
-	start = clock(); //시간 측정 시작
-	int i;
-	for (i = 0; i < n; i++) // 탐색 수행
-		if (search(collection, arr[i]) != NULL) cnt++;
+	long duration;
 
-	end = clock();
-	printf("%s (%d/%d개 탐색) 수행결과 : %ld ms\n", title, cnt, n, end - start);
+	// 각 개별적인 search 의 누적합산 한뒤 평균을 구한다.
+	for (int i = 0; i < n; i++) {
+		start = clock();
+		if (search(collection, arr[i]) != NULL) cnt++;  // 탐색수행
+		end = clock();
+		duration += end - start;
+	}
+	// %.3f 소숫점 3자리까지 출력해야 느낌이 올듯
+	printf("%s (%d/%d개 탐색) 수행결과: %.3f ms\n", title, cnt, n, (double)duration / n); // 평균수행시간
 }
 
 
@@ -112,7 +116,7 @@ int main(int argc, char** argv)
 {
 	List list;
 
-	// 랜덤 배열
+	// 중복된 값이 없는 랜덤 배열 생성 
 	int srcArr[LEN];
 	int workArr[LEN];
 
@@ -124,13 +128,13 @@ int main(int argc, char** argv)
 
 	
 	list_init(&list);
-	genList(&list, workArr, LEN);
+	genList(&list, workArr, LEN);  // list <- workArr
 	chkTimeLapArray(list_search, &list, srcArr, LEN, "리스트탐색");
 	list_destroy(&list);
 
 	BTreeNode *pRoot;   // BST 의 루트
 	bst_make_init(&pRoot);   // BST 초기화
-	genBST(&pRoot, workArr, LEN);
+	genBST(&pRoot, workArr, LEN);  // BST <- workArr
 	chkTimeLapArray(bst_search, pRoot, srcArr, LEN, "BST탐색");
 	btree_delete(pRoot);  // binary Tree 삭제
 

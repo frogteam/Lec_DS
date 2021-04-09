@@ -137,7 +137,7 @@ void btree_levelorder_traverse(BTreeNode *bt, fnVisitNode action)
 //----------------------------------------------------------------------
 BTreeNode * RemoveLeftSubTree(BTreeNode * bt)
 {
-	BTreeNode * delNode;
+	BTreeNode * delNode = NULL;
 
 	if (bt != NULL) {
 		delNode = bt->pLeft;
@@ -148,7 +148,7 @@ BTreeNode * RemoveLeftSubTree(BTreeNode * bt)
 
 BTreeNode * RemoveRightSubTree(BTreeNode * bt)
 {
-	BTreeNode * delNode;
+	BTreeNode * delNode = NULL;
 
 	if (bt != NULL) {
 		delNode = bt->pRight;
