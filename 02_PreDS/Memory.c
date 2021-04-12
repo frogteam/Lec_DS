@@ -17,12 +17,12 @@ int main(int argc, char** argv)
 	{
 		int len = 1000000;
 		// 동적메모리할당 : Dynamic memory allocation
-		int *arr = (int*)malloc(sizeof(int) * len);
+		int *arr = (int*)malloc(sizeof(int) * len); // malloc(byte_size) 메모리블럭을 할당받고, 첫번째 주소를 리턴
 
 		printf("arr[0]: %d\n", arr[0]);
 
 		// 메모리를 할당했으면 초기화 시켜주는것도 좋다
-		memset(arr, 0, sizeof(int) * len);
+		memset(arr, 0, sizeof(int) * len);  // arr부터 len * iny 만큼의 메모리 영역을 0 으로 초기화
 		printf("arr[0]: %d\n", arr[0]);
 
 		// 반드시 동적메모리는 사용 이후에 free 할당해제 해야 함
@@ -56,6 +56,7 @@ int main(int argc, char** argv)
 		arr1[3] = 40;
 		printf("%d %d %d %d\n", arr1[0], arr1[1], arr1[2], arr1[3]);
 
+		free(arr1);
 	}
 
 
@@ -72,11 +73,11 @@ int main(int argc, char** argv)
 
 		// 실수 많이 하는 것들.  
 		int i;
-		for (i = 0; i < 100; i++)
-		{
+		for (int i = 0; i < 10; i++) {
 			arr = (int*)malloc(sizeof(int) * len);
-			_sleep(50);  // 0.01초단위 delay()  프로파일링 확인용
-			//free(arr);  // 프로파일링 비교
+			_sleep(5000);  // delay주기 ms단위
+			free(arr);
+			_sleep(5000);
 		}
 
 		//free(arr);  // 응?
