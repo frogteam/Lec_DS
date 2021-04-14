@@ -7,12 +7,14 @@ void wlt_init(Wallet *p)
 	printf("지갑을 초기화 합니다\n");
 	p->bill1000 = 0;
 	p->coin500 = 0;
+
+	//memset(p, 0, sizeof(Wallet));   // 이와같이 초기화 가능
 }
 
 // 동전 삽입
 void wlt_put_coin(Wallet *p, int coinNum)
 {
-	(p->coin500) += coinNum;
+	p->coin500 += coinNum;
 	printf("동전 %d 개 삽입되어 %d 개가 되었습니다\n", coinNum, p->coin500);
 }
 

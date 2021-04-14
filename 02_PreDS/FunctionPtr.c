@@ -37,8 +37,12 @@ void doAction(int a, int b, void(*fnOp)(int, int))
 	(*fnOp)(a, b);
 }
 
-
 typedef void fnAction(int, int);  // 함수포인터 타입정의
+
+void doAction2(int a, int b, fnAction *fnOp)
+{
+	(*fnOp)(a, b);
+}
 
 int main(int argc, char** argv)
 {
@@ -80,7 +84,7 @@ int main(int argc, char** argv)
 		for (i = 0; i < 5; i++)
 		{
 			if (op == 0)
-				fnPlus(a, b);     //< --이 라인의 실행코드는 100 % fnPlus 다!
+				fnPlus(a, b);     //< --이 라인의 실행코드는 100 % fnPlus 를 호출한다!
 			else if (op == 1)
 				fnMinus(a, b);    //< --이 라인의 실행코드는 100 % fnMinus 다!
 			else if (op == 2)
@@ -94,12 +98,16 @@ int main(int argc, char** argv)
 
 
 
-		// 반면
+		// 반면!
 		// 함수포인터 선언
 		void(*fnAction)(int, int);  
 
-		// 함수포인터이 배열  (마지 함수들만 모아놓음)
+		// 함수포인터의 배열 (함수들만 모아놓은 배열)
 		void(*fnOpArr[]) (int, int) = { fnPlus , fnMinus, fnMul, fnDiv };
+		// fnOpArr[0] => fnPlus
+		// fnOpArr[1] => fnMinus
+
+		printf("\n");
 		fnAction = fnOpArr[op];  // op: 0 ~ 3
 
 		for (i = 0; i < 5; i++)
@@ -120,8 +128,8 @@ int main(int argc, char** argv)
 	{
 		doAction(333, 444, fnPlus);
 		doAction(333, 444, fnMinus);
-		doAction(333, 444, fnMul);
-		doAction(333, 444, fnDiv);
+		doAction2(333, 444, fnMul);
+		doAction2(333, 444, fnDiv);
 	}
 
 

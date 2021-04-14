@@ -35,6 +35,7 @@ int iter_hasNext(IterArray* p)
 	}
 }
 
+// 다음 데이터 추출
 int iter_next(IterArray* p)
 {
 	p->curPosition++;   // 우선! curPosition 이 next 로 +1 증가
@@ -68,3 +69,16 @@ int main()
 	}
 	printf("\n");
 }
+
+/*  Python 예.
+
+		for a in b:  <-- b 는 iterable 해야 한다.
+
+	Java
+		for(int n : list)
+
+	JavaScript
+		for ~ in
+		for ~ of
+		forEach
+*/
