@@ -13,25 +13,25 @@ void printList(List *pList)
 	printf("[");
 	while (list_hasNext(pList))
 	{
-		printf("%d ", list_next(pList));
+		printf("%d,", list_next(pList));
 	}
-	printf("]\n");
+	printf("\b]\n");
 }
 
 int main()
 {
 	List myList;
-	list_init(&myList);   // 리스트 생성
+	list_init(&myList);   // 리스트 초기화
 	
 	printList(&myList);
 	list_add(&myList, 100);  // 데이터 추가
-	printList(&myList);
+	printList(&myList);		 // [100]
 	list_add(&myList, 50);   // 데이터 추가
-	printList(&myList);
+	printList(&myList);      // [100, 50]
 	list_add(&myList, 100);   // 데이터 추가
-	printList(&myList);
+	printList(&myList);       // [100, 50, 100]
 	list_add(&myList, 20);   // 데이터 추가
-	printList(&myList);
+	printList(&myList);       // [100, 50, 100, 20]
 	list_add(&myList, 45);   // 데이터 추가    - 실패
 	printList(&myList);
 	list_add(&myList, 70);   // 데이터 추가    - 실패
@@ -44,18 +44,20 @@ int main()
 	printList(&myList);
 
 	// 데이터 개수
-	printf("데이터 개수는 %d\n", list_length(&myList));
+	printf("데이터 개수는 %d\n", list_length(&myList)); // 4
 
 	// 데이터 조회
 	Data data;
-	if (list_get(&myList, 0, &data)) printf("0번째 : %d\n", data);
-	if (list_get(&myList, 6, &data)) printf("6번째 : %d\n", data);
-	if (list_get(&myList, 2, &data)) printf("2번째 : %d\n", data);
+	if (list_get(&myList, 0, &data)) printf("0번째 : %d\n", data); // 40
+	if (list_get(&myList, 6, &data)) printf("6번째 : %d\n", data); // 실패
+	if (list_get(&myList, 2, &data)) printf("2번째 : %d\n", data); // 100
 	
 
 	// 데이터 삭제
+	printf("삭제전\n");
+	printList(&myList); // [40, 30, 100, 20] 삭제전
 	list_remove(&myList, 2);
-	printList(&myList);
+	printList(&myList); // [40, 30, 20]
 	list_remove(&myList, 2);
 	printList(&myList);
 	list_remove(&myList, 0);
@@ -71,12 +73,12 @@ int main()
 	printf("\n");
 	list_add(&myList, 10);
 	list_add(&myList, 20);
-	printList(&myList);
+	printList(&myList);  // [10, 20]
 	list_insert(&myList, 1, 40);
-	printList(&myList);
+	printList(&myList);  // [10, 40, 20]
 	list_insert(&myList, 0, 5);
-	printList(&myList);
-	list_insert(&myList, 0, 5);
+	printList(&myList);   // [5, 10, 40, 20]
+	list_insert(&myList, 0, 5);  // 실패
 
 	list_init(&myList);
 	list_insert(&myList, 0, 5);
@@ -105,6 +107,8 @@ int main()
 
 	list_destroy(&myList);  // 리스트 제거
 
+
+	// Linked List 후 
 	{
 		printf("--------------------------------------------------------\n");
 		list_init(&myList);

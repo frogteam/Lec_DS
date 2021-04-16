@@ -9,7 +9,7 @@ void list_init(List* pList)
 {
 	pList->numData = 0;
 	pList->curPosition = -1;   // iterating 에 대해
-	memset(pList->arr, 0, sizeof(pList->arr));
+	memset(pList->arr, 0, sizeof(pList->arr)); // 배열을 전부 0으로 초기화
 	printf("리스트 초기화\n");
 }
 
@@ -59,8 +59,7 @@ int list_hasNext(List *pList)
 	return FAIL;
 }
 
-// 데이터 수정
-// 
+// n번째 데이터 수정
 int list_set(List *pList, int n, Data data)
 {
 	if (n >= pList->numData) {
@@ -68,7 +67,7 @@ int list_set(List *pList, int n, Data data)
 		return FAIL;
 	}
 	
-	printf("%d 번째 데이터 수정 %d --> %d\n", n, pList->arr[n], data);
+	printf("[%d] 번째 데이터 수정 %d --> %d\n", n, pList->arr[n], data);
 	pList->arr[n] = data;  // 수정
 	return SUCCESS;
 }
@@ -86,7 +85,7 @@ int list_get(List* pList, int n, Data *pData)
 {
 	if (n >= pList->numData) return FAIL;
 
-	*pData = pList->arr[n];  // 데이터 값,  포인터로 리턴
+	*pData = pList->arr[n];  // n번째 데이터값 pData 를 통해 전달 Call By Reference
 
 	return SUCCESS;
 }
@@ -96,11 +95,11 @@ int list_remove(List *pList, int n)
 {
 	if (n >= pList->numData)
 	{
-		printf("%d번째 데이터 삭제 실패\n", n);
+		printf("[%d]번째 데이터 삭제 실패\n", n);
 		return FAIL;
 	}
 
-	// 배열이니까 중간 삭제하면 뒤의 것도 당겨야 한다.
+	// 배열이니까, 중간의 데이터를 삭제하면 뒤의 것들을 당겨와야 한다
 
 	int i;
 	for (i = n; i < pList->numData - 1; i++)
@@ -110,7 +109,7 @@ int list_remove(List *pList, int n)
 
 	pList->numData--;  // 리스트 size 감소
 
-					   //printf("%d 번째 데이터 삭제\n", n);
+	//printf("%d 번째 데이터 삭제\n", n);
 
 	return SUCCESS;
 }
@@ -128,7 +127,7 @@ int list_insert(List* pList, int n, Data data)
 	// n 유효범위 검증 '중간' 및 '끝' 삽입은 허용
 	if (n > pList->numData)
 	{
-		printf("%d 번째 위치에 삽입 불가\n", n);
+		printf("[%d] 번째 위치에 삽입 불가\n", n);
 		return FAIL;
 	}
 
@@ -139,10 +138,10 @@ int list_insert(List* pList, int n, Data data)
 	{
 		pList->arr[i] = pList->arr[i - 1];
 	}
-	pList->arr[n] = data; // n번째 새 데이터 
+	pList->arr[n] = data; // n번째에 새 data 삽입 
 	pList->numData++;  // 데이터 개수 증가
 	
-	//printf("%d번째 데이터 %d 삽입 성공\n", n, data);
+	//printf("[%d]번째 데이터 %d 삽입 성공\n", n, data);
 
 	return SUCCESS;
 }
