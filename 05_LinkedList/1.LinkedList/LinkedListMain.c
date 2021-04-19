@@ -88,7 +88,7 @@ int main()
 	list_destroy(&myList);
 
 	
-	
+	// ※ ↓ 먼저 ArrayList 부터 한뒤에 에 그대로 복붙하여 LinkedList 진행
 	{
 		printf("--------------------------------------------------------\n");
 		list_init(&myList);

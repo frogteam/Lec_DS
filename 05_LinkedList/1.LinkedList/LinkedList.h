@@ -2,10 +2,17 @@
 #define __LINKED_LIST_H__
 /*
 	LinkedList 의 ADT
+
+	장점: 삽입, 삭제 유리
+	단점: 조회에 불리
+
+	단점: ArrayList에 비해 용량 UP
 */
 
 #define TRUE 1
 #define FALSE 0
+
+/* List 의 데이터  */
 
 typedef int Data;     // 데이터는 int
 
@@ -27,9 +34,9 @@ typedef struct _linkedList
 
 }LinkedList;
 
+typedef LinkedList List;
 
 /* List 동작 */
-typedef LinkedList List;
 
 void list_init(List *pList);   // 리스트 초기화  
 void list_destroy(List *pList);   // 리스트 제거

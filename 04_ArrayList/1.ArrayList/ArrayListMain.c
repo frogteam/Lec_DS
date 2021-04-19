@@ -108,7 +108,8 @@ int main()
 	list_destroy(&myList);  // 리스트 제거
 
 
-	// Linked List 후 
+	// ※ Linked List 후 프로파일링
+	// ArrayList.h 에서 LIST_LEN	30000 설정하고 오자
 	{
 		printf("--------------------------------------------------------\n");
 		list_init(&myList);
@@ -122,7 +123,7 @@ int main()
 		// ※ list_add, list_insert, list_delete, list_get 의 printf 를 주석처리하고 진행
 
 		// 프로파일링
-		start = clock(); //시간 측정 시작
+		start = clock(); // 시간측정 시작 (현재시간 저장)
 		for (unsigned int i = 0; i < test_size; i++)
 		{
 			list_insert(&myList, 0, i);  // 0번째에 insert!

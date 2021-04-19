@@ -68,8 +68,8 @@ int list_hasNext(List *pList)
 // 데이터 조회, 다음번
 Data list_next(List *pList)
 {
-	pList->pCurrent = pList->pCurrent->pNext;  // 우선 current 이동
-	Data result = pList->pCurrent->data;
+	pList->pCurrent = pList->pCurrent->pNext;  // 우선 current 한발 앞으로 이동
+	Data result = pList->pCurrent->data;  // 데이터 추출
 	return result;
 }
 
@@ -130,14 +130,14 @@ int list_remove(List *pList, int n)
 	// 삭제진행: 매우 단순 (배열에 비해)
 	pPrev->pNext = pList->pCurrent->pNext;
 
-	// 만약 tail 이 삭제 데이터였다면 tail값도 수정해야 한다
+	// 만약 tail 이 삭제할 노드였다면 tail값도 수정해야 한다
 	if (pList->pCurrent == pList->pTail)
 		pList->pTail = pPrev;  // tail 을 이전 노드로 이동
 
 	// n번째 노드삭제 동적 메모리 할당 해제! 꼭!
 	free(pList->pCurrent);
 
-	pList->numData--;  // 리스트 size 감소
+	pList->numData--;  // 리스트 데이터 개수 -1 감소
 	
 	//printf("%d 번째 데이터 삭제\n", n);
 	
@@ -155,8 +155,7 @@ int list_get(List* pList, int n, Data *pData)
 	while (list_hasNext(pList))
 	{
 		list_next(pList);
-		if (i >= n)
-			break;
+		if (i >= n) break; // n 번째 발견!
 		i++;
 	}
 	// 위 while문이 끝나면 pCurrent 값은 n번째 node를 가리키고 있다.
@@ -174,12 +173,11 @@ int list_get(List* pList, int n, Data *pData)
 void list_destroy(List *pList)
 {
 	list_init_iter(pList);  // iteration 시작
-	int i = 0;
 	Node *pPrev = NULL;
 	while (list_hasNext(pList))
 	{
 		pPrev = pList->pCurrent;
-		list_next(pList);  // 일단 pCurrent 다음으로 이동
+		list_next(pList);  // 일단 pCurrent 다음노드 이동
 		free(pPrev);  // 노드 삭제
 	}
 	pList->pHead = NULL;
@@ -189,7 +187,7 @@ void list_destroy(List *pList)
 }
 
 // 데이터 삽입: n번째 위치에 데이터 삽입
-// 맨 뒤에 삽입하는 것도 허용하기.
+// 맨뒤에 삽입(추가) 하는 것도 허용
 int list_insert(List* pList, int n, Data data)
 {
 	if (n > pList->numData) return FALSE;  // >= 이 아니라 > 이다!
@@ -201,19 +199,19 @@ int list_insert(List* pList, int n, Data data)
 	pNewNode->data = data;
 
 	
-	if (pList->numData == 0)  // 첫번째 데이터인 경우
+	if (pList->numData == 0)  // 1.첫번째 데이터인 경우
 	{
 		pList->pHead->pNext = pNewNode;
 		pList->pTail = pNewNode;
 	} 
-	else if (n == pList->numData)  // 맨 끝에 추가면
+	else if (n == pList->numData)  // 2.맨 끝에 추가면
 	{
 		pList->pTail->pNext = pNewNode; // add() 와 동일
 		pList->pTail = pNewNode;
 	}
 	else
 	{
-		// n번째 노드에 삽입하려면
+		// 3. n번째 노드에 삽입하려면
 		// n-1번째 노드, 직전노드(previoud node) 또한 알아야 한다.
 		list_init_iter(pList);  // iteration 시작
 		int i = 0;
