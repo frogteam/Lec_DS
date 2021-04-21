@@ -198,15 +198,20 @@ int list_insert(List* pList, int n, Data data)
 	memset(pNewNode, 0, sizeof(Node));
 	pNewNode->data = data;
 
-	
-	if (pList->numData == 0)  // 1.첫번째 데이터인 경우
+	//if (pList->numData == 0)  // 1.첫번째 데이터인 경우
+	//{
+	//	pList->pHead->pNext = pNewNode;
+	//	pList->pTail = pNewNode;
+	//}
+	//else if (n == pList->numData)  // 2.맨 끝에 추가면
+	//{
+	//	pList->pTail->pNext = pNewNode; // add() 와 동일
+	//	pList->pTail = pNewNode;
+	//}
+	if (pList->numData == 0   // 1.첫번째 데이터이거나
+				|| n == pList->numData)  // 맨 끝에 추가면
 	{
-		pList->pHead->pNext = pNewNode;
-		pList->pTail = pNewNode;
-	} 
-	else if (n == pList->numData)  // 2.맨 끝에 추가면
-	{
-		pList->pTail->pNext = pNewNode; // add() 와 동일
+		pList->pTail->pNext = pNewNode; // add() 와 동일  ※ 어짜피 첫번째 데이터인 경우 tail 이나 head나 동일하게 dummy node 를 가리키고 있을 것이다.
 		pList->pTail = pNewNode;
 	}
 	else
