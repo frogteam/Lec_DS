@@ -5,15 +5,15 @@
 void queue_init(Queue * pq)
 {
 	pq->pFront = NULL;
-	pq->pRear = NULL;
+	pq->pBack = NULL;
 }
 
 int queue_is_empty(Queue * pq)
 {
 	if(pq->pFront == NULL)
 		return SUCCESS;
-	else
-		return FAIL;
+
+	return FAIL;
 }
 
 int queue_enq(Queue * pq, Data data)
@@ -27,33 +27,37 @@ int queue_enq(Queue * pq, Data data)
 	if(queue_is_empty(pq))   
 	{
 		pq->pFront = pNewNode;
-		pq->pRear = pNewNode;
+		pq->pBack = pNewNode;
 	}
 	else
 	{
-		pq->pRear->pNext = pNewNode;
-		pq->pRear = pNewNode;
+		pq->pBack->pNext = pNewNode;
+		pq->pBack = pNewNode;
 	}
 
 	return SUCCESS;
+	// ※ LinkedList.c 의 list_add() 함수와 비교해보자
+	//    dummy node 를 사용한것(LinkedList)와
+	//    그렇지 않은것(ListBaseQueue)도 비교
 }
 
 int queue_deq(Queue * pq, Data *pData)
 {
 	if(queue_is_empty(pq))
 	{
-		printf("Queue Memory Error!");
+		printf("Queue EMPTY!");
 		return FAIL;
 	}
 
 	 
 
 	if(pData != NULL)
-		*pData = pq->pFront->data;
-	Node * delNode = pq->pFront;  // 삭제할 노드 기억
-	pq->pFront = pq->pFront->pNext;
+		*pData = pq->pFront->data; // front 데이터 추출
 
-	free(delNode);
+	Node * deleteNode = pq->pFront;  // 삭제할 노드 기억
+	pq->pFront = pq->pFront->pNext; // front 는 다음 노드로 이동
+
+	free(deleteNode);
 
 	return SUCCESS;
 }
@@ -62,7 +66,7 @@ int queue_peek(Queue *pq, Data *pData)
 {
 	if(queue_is_empty(pq))
 	{
-		printf("Queue Memory Error!");
+		printf("Queue EMPTY!");
 		return FAIL;
 	}
 
@@ -73,6 +77,7 @@ int queue_peek(Queue *pq, Data *pData)
 
 void queue_destroy(Queue *pq)
 {
+	// 큐가 다 비어질때까지 dequeue
 	while (!queue_is_empty(pq))
 	{
 		queue_deq(pq, NULL);

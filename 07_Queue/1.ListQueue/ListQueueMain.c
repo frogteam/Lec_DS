@@ -16,10 +16,11 @@ int main(void)
 	queue_init(&q);  // 큐 초기화
 
 	// 데이터 넣기 enqueue
-	queue_enq(&q, 1);  queue_enq(&q, 2);
-	queue_enq(&q, 3);  queue_enq(&q, 4);
-	queue_enq(&q, 5);
-	// front --> [1->2->3->4->5] <-- back
+	queue_enq(&q, 1);  // front <-- [1] <-- back
+	queue_enq(&q, 2);  // front <-- [1 2] <-- back
+	queue_enq(&q, 3);  // front <-- [1 2 3] <-- back
+	queue_enq(&q, 4);  // front <-- [1 2 3 4] <-- back
+	queue_enq(&q, 5);  // front <-- [1 2 3 4 5] <-- back
 
 
 	// 데이터 꺼내기 dequeue

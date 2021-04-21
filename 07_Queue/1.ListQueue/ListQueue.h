@@ -18,7 +18,7 @@ typedef struct _node
 typedef struct _lQueue
 {
 	Node * pFront;
-	Node * pRear;
+	Node * pBack;
 } LQueue;
 typedef LQueue Queue;
 
@@ -28,8 +28,8 @@ void queue_destroy(Queue *pq);   //큐 제거
 
 int queue_is_empty(Queue *pq);    // 큐 비어있는지?
 
-int queue_enq(Queue *pq, Data data);    // enqueue 데이터 추가
-int queue_deq(Queue *pq, Data *pData);  // dequeue 데이터 꺼내기
-int queue_peek(Queue *pq, Data *pData); // peek  데이터 들여다 보기
+int queue_enq(Queue *pq, Data data);    // enqueue 데이터 추가 (back 에 추가)
+int queue_deq(Queue *pq, Data *pData);  // dequeue 데이터 꺼내기 (front 에서 추출)
+int queue_peek(Queue *pq, Data *pData); // peek  데이터 들여다 보기 (front)
 
 #endif

@@ -22,13 +22,13 @@ int stack_is_empty(Stack * pstack)
 // top 에 데이터 추가 (push)
 int stack_push(Stack * pstack, Data data)
 {
-	Node *newNode = (Node*)malloc(sizeof(Node));
-	memset(newNode, 0, sizeof(Node));
-	newNode->data = data;
+	Node *pNewNode = (Node*)malloc(sizeof(Node));
+	pNewNode->data = data;
 
 	// 노드를 스택에 추가
-	newNode->pNext = pstack->pTop;
-	pstack->pTop = newNode;
+	pNewNode->pNext = pstack->pTop;
+	// top 은 새로이 push 된 노드를 가리킨다
+	pstack->pTop = pNewNode;
 
 	return SUCCESS;
 }
@@ -36,7 +36,7 @@ int stack_push(Stack * pstack, Data data)
 int stack_pop(Stack * pstack, Data *pData)
 {
 	if(stack_is_empty(pstack)) {
-		printf("Empry Stack");
+		printf("Empty Stack");
 		return FAIL;
 	}
 
@@ -60,7 +60,7 @@ int stack_peek(Stack * pstack, Data *pData)
 		return FAIL;
 	}
 
-	if(pData != NULL)
+	if(pData != NULL)   // ※ 꼭 필요함 아래 stack_destroy에서 사용된다
 		*pData = pstack->pTop->data;   // top 의 데이터만 추출
 
 	return SUCCESS;
