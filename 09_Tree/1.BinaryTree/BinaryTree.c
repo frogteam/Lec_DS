@@ -42,8 +42,9 @@ BTreeNode * btree_get_right(BTreeNode * bt)
 
 void btree_make_left(BTreeNode *bt, BTreeNode *sub)
 {
-	if(bt->pLeft != NULL)
-		free(bt->pLeft);   // ???????
+	if (bt->pLeft != NULL)
+		//free(bt->pLeft);   // ???????
+		btree_delete(bt->pLeft);
 
 	bt->pLeft = sub;
 }
@@ -51,9 +52,25 @@ void btree_make_left(BTreeNode *bt, BTreeNode *sub)
 void btree_make_right(BTreeNode * bt, BTreeNode * sub)
 {
 	if(bt->pRight != NULL)
-		free(bt->pRight);
+		//free(bt->pRight);
+		btree_delete(bt->pRight);
 
 	bt->pRight = sub;
+}
+
+void btree_delete(BTreeNode *bt)
+{
+	if (bt == NULL) return;
+
+	// 삭제는 post order 방식(L -> R -> C) 순서로 지워야 한다
+
+	// 자기 자신을 지우기 전에 left, right 부터 지워야 한다
+	btree_delete(bt->pLeft);  // L
+	btree_delete(bt->pRight); // R
+
+							  // 자기자신 삭제
+	printf("노드 삭제 : %d \n", bt->data);  // C
+	free(bt);
 }
 
 // Traversing--------------------------------------------------------
@@ -86,20 +103,7 @@ void btree_postorder_traverse(BTreeNode *bt, fnVisitNode action)
 }
 
 
-void btree_delete(BTreeNode *bt)
-{
-	if (bt == NULL) return;
 
-	// 삭제는 post order 방식(L -> R -> C) 순서로 지워야 한다
-
-	// 자기 자신을 지우기 전에 left, right 부터 지워야 한다
-	btree_delete(bt->pLeft);  // L
-	btree_delete(bt->pRight); // R
-
-	// 자기자신 삭제
-	printf("노드 삭제 : %d \n", bt->data);  // C
-	free(bt);
-}
 
 // level-order traversing 도전!
 // breath-first 도전

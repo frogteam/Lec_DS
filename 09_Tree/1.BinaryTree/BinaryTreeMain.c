@@ -47,9 +47,11 @@ int main(void)
 		printf("Preorder : ");
 		btree_preorder_traverse(bt1, printData);  // 1 2 4 3
 		printf("\n");
+
 		printf("Inorder : ");
 		btree_inorder_traverse(bt1, printData);  // 4 2 1 3
 		printf("\n");
+
 		printf("Postorder : ");
 		btree_postorder_traverse(bt1, printData);   // 4 2 3 1
 		printf("\n");
@@ -60,7 +62,7 @@ int main(void)
 		printf("\n");
 
 		// 3. 삭제
-		btree_delete(bt1);
+		btree_delete(bt1);   // 삭제순서 4 - 2 - 3 - 1
 	}
 
 	printf("\n");

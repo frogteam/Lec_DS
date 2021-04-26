@@ -2,14 +2,14 @@
 #define __BINARY_TREE_H__
 
 /* Binary Tree 데이터 */
-typedef int BTData;        // 이 예제에전 이를 Data 라 하지 말자.. 나중에 Queue 와 같이 써야 해서리
+typedef int BTData;        // ※ 이 예제에선 이를 Data 라 하지 말자.. 나중에 Queue 와 같이 써야 해서리
 
 typedef struct _bTreeNode
 {
 	BTData data;
 	struct _bTreeNode *pLeft;  // left child node
 	struct _bTreeNode *pRight;
-} BTreeNode;      // 이 예제에선 이를 Node 로 typedef 하지 말자
+} BTreeNode;      // ※ 이 예제에선 이를 Node 로 typedef 하지 말자
 					// 나중에 Queue 와 같이 써야 하기에..
 
 /* Binary Tree 동작 */
@@ -27,8 +27,13 @@ void btree_make_right(BTreeNode *main, BTreeNode *sub);  // main 의 right 에 sub
 void btree_delete(BTreeNode *bt);    // 현재 노드 부터 삭제
 
 
-typedef void fnVisitNode(BTData data);  // visit 하여 수행할 함수 (함수포인터) 선언
 
+// Traversing-----------------------------------
+// 노드를 visit 하여 노드의 데이터에 대해 수행할 함수 (함수포인터) 타입 선언
+typedef void fnVisitNode(BTData data);  
+
+// 주어진 노드 bt 부터 시작하여 preorder traversing 하면서 
+// node 를 visit 할때마다 action() 수행
 void btree_preorder_traverse(BTreeNode *bt, fnVisitNode action);
 void btree_inorder_traverse(BTreeNode *bt, fnVisitNode action);
 void btree_postorder_traverse(BTreeNode *bt, fnVisitNode action);
