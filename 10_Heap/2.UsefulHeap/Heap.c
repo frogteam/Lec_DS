@@ -31,7 +31,7 @@ int getHighPriority(Heap *ph, int idx)
 		//	if(ph->heapArr[GetLChildIDX(idx)].pr 
 		//				> ph->heapArr[GetRChildIDX(idx)].pr)
 
-	// 우선순위 비교 함수 사용!
+	// 자식이 둘 있는 경우 우선순위 비교함수 사용!
 	if (ph->comp(ph->heapArr[getLeftIdx(idx)], ph->heapArr[getRightIdx(idx)]) < 0)
 		return getRightIdx(idx);   // Right가 우선순위 높다
 	else
@@ -58,6 +58,7 @@ int heap_is_empty(Heap * ph)
 // 힙에 데이터 추가
 void heap_insert(Heap * ph, HData data)
 {
+	// 새로 INSERT 되는 데이터는 맨 끝에서 시작
 	int idx = ph->numData + 1;  // 배열 인덱스는 '1' 부터 시작한다
 
 	// 아래 while 문 수행하면서 새로 insert 된 data 가 위치할 idx 를 결정
@@ -66,8 +67,8 @@ void heap_insert(Heap * ph, HData data)
 	//	if(pr < (ph->heapArr[GetParentIDX(idx)].pr))
 		if(ph->comp(data, ph->heapArr[getParentIdx(idx)]) > 0)  // 부모보다 우선순위가 높다면
 		{
-			ph->heapArr[idx] = ph->heapArr[getParentIdx(idx)];   // 부모를 끌어 내리고
-			idx = getParentIdx(idx);   // 부모 index 로 idx 값 이동
+			ph->heapArr[idx] = ph->heapArr[getParentIdx(idx)];   // 부모를 끌어 내리고 -> idx
+			idx = getParentIdx(idx);   // idx -> 부모 index 로 이동
 		}
 		else
 		{
@@ -84,6 +85,8 @@ void heap_insert(Heap * ph, HData data)
 HData heap_delete(Heap * ph)
 {
 	HData retData = ph->heapArr[1];  // 인덱스 1번이 루트 노드다 . 이를 리턴하고 제거한다.
+
+	// 결국, 마지막 노드가 자리잡을 위치 idx 를 결정해야 한다.
 	HData lastElem = ph->heapArr[ph->numData];  // numData 번째가 마지막 노드다.
 
 	int idx = 1;

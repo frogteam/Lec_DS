@@ -9,9 +9,9 @@
 
 typedef int HData;
 
-// d1의 우선순위가 높다면 0보다 큰 값
-// d2의 우선순위가 높다면 0보다 작은 값
-// d1과 d2의 우선순위가 같다면 0을 반환
+// d1의 우선순위가 높다면 0보다 큰 값 리턴
+// d2의 우선순위가 높다면 0보다 작은 값 리턴
+// d1과 d2의 우선순위가 같다면 0을 리턴
 typedef int fnPriorityComp(HData d1, HData d2);
 
 typedef struct _heap
