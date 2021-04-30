@@ -45,8 +45,8 @@ int main(void)
 	heap_insert(&heap, 60);
 	heap_insert(&heap, 20);
 	heap_insert(&heap, 30);
-	while(!heap_is_empty(&heap))
-		printf("%d ", heap_delete(&heap));  // delete 되는 순서 주목
+	while(!heap_is_empty(&heap))     
+		printf("%d ", heap_delete(&heap));  // delete 되는 순서 주목  // 10 20 30 40 60
 	printf("\n");
 
 	//---------------------------------------

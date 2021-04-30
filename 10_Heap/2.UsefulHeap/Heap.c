@@ -84,12 +84,13 @@ void heap_insert(Heap * ph, HData data)
 // 힙에서 삭제 (root 삭제) 하여 리턴
 HData heap_delete(Heap * ph)
 {
-	HData retData = ph->heapArr[1];  // 인덱스 1번이 루트 노드다 . 이를 리턴하고 제거한다.
+	HData rootData = ph->heapArr[1];  // 인덱스 1번이 루트 노드다 . 이를 리턴하고 제거한다.
 
-	// 결국, 마지막 노드가 자리잡을 위치 idx 를 결정해야 한다.
+	// 마지막 노드가 자리잡을 위치 idx 를 결정해야 한다. 
+	// idx가 결정될때까지 마지막 노드의 data를 보관해놓는다
 	HData lastElem = ph->heapArr[ph->numData];  // numData 번째가 마지막 노드다.
 
-	int idx = 1;
+	int idx = 1;  // 마지막 노드가 일단 root 의 자리에 오른다
 	int childIdx;
 
 	// 일단, 자식노드중 우선순위 높은거 선택
@@ -107,12 +108,12 @@ HData heap_delete(Heap * ph)
 		// 자식의 우선순위가 더 크다면,  그 자식이 부모의 자리로 교체
 		ph->heapArr[idx] = ph->heapArr[childIdx];
 
-		// 다음 비교를 위해 idx를 좀전의 자식위치로 내리기
+		// 다음 비교를 위해 마지막 노드 idx를 좀전의 자식위치로 내리기
 		idx = childIdx;  
 	}
 
 	// while이 다 끝난 그 자리가, 마지막 노드가 위치할 곳이다.
 	ph->heapArr[idx] = lastElem;
 	ph->numData--;   // 데이터 개수 -1 감소
-	return retData;  // 최초에 저장해놓은 root 리턴
+	return rootData;   // 최초에 저장해 놓았던 root data 리턴
 }

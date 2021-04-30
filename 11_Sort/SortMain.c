@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 
 	//printf("BubbleSort µø¿€\n");
 	//{
-	//	int data[] = { 3, 2, 7, 5, 6 };
+	//	int data[] = { 3, 2, 7, 5, 1 };
 	//	length = sizeof(data) / sizeof(int);
 	//	BubbleSort(data, length);
 	//	printArr(data, length);

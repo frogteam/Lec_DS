@@ -66,7 +66,7 @@ void BubbleSort(int arr[], int n)
 
 	for (i = 0; i < n - 1; i++)   // cycle 회전 횟수. 처음에는 n-1번 비교,  그 다음부터 n-2, n-3 ... 1 번 비교
 	{
-		for (j = 0; j < (n - i) - 1; j++)   // for 안의 for .. O(n제곱) 이다 
+		for (j = 0; j < (n - i) - 1; j++)   // for 안의 for .. O(n^2) 이다 
 		{
 			// 1. 인접한 두개 비교
 			if (arr[j] > arr[j + 1])  // 2. 크기가 반대라면   << 비교 >>

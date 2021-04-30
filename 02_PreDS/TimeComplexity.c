@@ -9,19 +9,18 @@
 
 typedef void fnAction(int);  // 측정할 함수 타입
 
-void chkTime(char* szTitle, fnAction action, int size) {
+void chkTime(char* szTitle, fnAction action, int dataSize) {
 	clock_t start, end;
 	long result;
-	int sum = 0;
 
-	printf("%s : size[%d] 측정시작\n", szTitle, size);
+	printf("%s : size[%d] 측정시작\n", szTitle, dataSize);
 	start = clock(); //시간 측정 시작
 
-	action(size);
+	action(dataSize);
 
 	end = clock(); //시간 측정 끝
 	result = end - start;
-	printf("%s : size[%d] 경과시간 %ld ms\n", szTitle, size, result);
+	printf("%s : size[%d] 경과시간 %ld ms\n", szTitle, dataSize, result);
 
 }
 
