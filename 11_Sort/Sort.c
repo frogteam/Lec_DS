@@ -16,26 +16,31 @@ void printArr(int arr[], int n)
 	printf("\b]\n");  // backspace
 }
 
+// 1 ~ bound 사이의 무작위 정수 n개 
 void genRandom(int arr[], int n, int bound)
 {
 	// 무작위 정수
-	int i;
-	srand(time(NULL));
-	for (i = 0; i < n; i++)
-	{
-		//arr[i] = getRandomInt(bound);
-		arr[i] = rand() % bound + 1;
-	}
+	//srand(time(NULL));
+	//for (int i = 0; i < n; i++)
+	//{
+	//	//arr[i] = getRandomInt(bound);
+	//	arr[i] = rand() % bound + 1;
+	//}
+
+	for (int i = 0; i < n; i++)
+		arr[i] = i + 1;
+	
+	shuffleArr(arr, n);
 }
 
+// 오름차순 배열 1 ~ n
 void genIncSorted(int arr[], int n)
 {
-	int i;
-	for (i = 0; i < n; i++)
-	{
-		arr[i] = i;
-	}
+	for (int i = 0; i < n; i++)
+		arr[i] = i + 1;
 }
+
+// 내림차순 배열 n ~ 1
 void genDecSorted(int arr[], int n)
 {
 	int i;
@@ -45,16 +50,32 @@ void genDecSorted(int arr[], int n)
 	}
 }
 
+// 배열 섞기
+void shuffleArr(int arr[], int n)
+{
+	srand(time(NULL));
+	if (n > 1)  // 배열길이 2개 이상인 경우만 shuffle
+	{
+		for (int i = 0; i < n - 1; i++)
+		{
+			// i 와 임의의 i오른쪽의 j번째와 swap
+			int j = i + rand() / (RAND_MAX / (n - i) + 1);
+			int temp = arr[j];
+			arr[j] = arr[i];
+			arr[i] = temp;
+		}
+	}
+}
 
 
 // 시간 체크
-void chkTimeLap(fnSort sort, int arr[], int n, char *title)
+void chkTimeLap(fnSort sort, int arr[], int n, char *szTitle)
 {
 	clock_t start, end;
 	start = clock(); //시간 측정 시작
 	sort(arr, n);  // 정렬 수행
 	end = clock(); 
-	printf("%s (size: %d) 수행결과 : %ld ms\n", title, n, end - start);
+	printf("%s (size: %d) 수행결과 : %ld ms\n", szTitle, n, end - start);
 }
 
 
@@ -119,13 +140,13 @@ void SelectionSort(int arr[], int n)
 // 삽입 정렬
 void InsertionSort(int arr[], int n)
 {
-	int i, j;
 	int insData;
 
-	for (i = 1; i < n; i++)   // i = 1부터 시작!
+	for (int i = 1; i < n; i++)   // i = 1부터 시작!
 	{
 		insData = arr[i];   // i번째 데이터 선택(insData에 임시 저장), 나중에 INSERT 될 위치 정해지면 그 자리에 '삽입'
 
+		int j;
 		for (j = i - 1; j >= 0; j--)  // j 를 i 왼쪽부터 왼쪽으로 검색해 나감
 		{
 			if (arr[j] > insData)   // 삽입하려는 데이터 insData 보다  j번째 데이터가 크면 << 비교 >>

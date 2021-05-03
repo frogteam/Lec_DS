@@ -62,22 +62,33 @@ int main(int argc, char** argv)
 	//	printArr(data, 6);
 	//}
 
+	//------------------------------------------------
+	//{   // 우선 도우미 함수 동작 확인 , 일단 DATA_SIZE 는 10 정도로 테스트
+	//	int srcArr[DATA_SIZE];
+	//	genRandom(srcArr, DATA_SIZE, DATA_SIZE);
+	//	printArr(srcArr, DATA_SIZE);
+	//	genIncSorted(srcArr, DATA_SIZE);
+	//	printArr(srcArr, DATA_SIZE);
+	//	genDecSorted(srcArr, DATA_SIZE);
+	//	printArr(srcArr, DATA_SIZE);
+	//}
+
 	//-------------------------------------------------
-	printf("\nTime Complexity\n");
-	{
-		int srcArr[DATA_SIZE];  // DATA_SIZE 를 20000, 40000 .. 테스트 해보자.
-		genRandom(srcArr, DATA_SIZE, DATA_SIZE);  // 랜덤으로 생성
-		int workArr[DATA_SIZE];
+	//printf("\nTime Complexity\n");
+	//{
+	//	int srcArr[DATA_SIZE];  // DATA_SIZE 를 20000, 40000 .. 테스트 해보자.
+	//	genRandom(srcArr, DATA_SIZE, DATA_SIZE);  // 랜덤으로 생성
+	//	int workArr[DATA_SIZE];
 
-		memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);  // workArr <- srcArr 배열 복사
-		chkTimeLap(BubbleSort, workArr, DATA_SIZE, "버블정렬");
+	//	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);  // workArr <- srcArr 배열 복사
+	//	chkTimeLap(BubbleSort, workArr, DATA_SIZE, "버블정렬");
 
-		memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
-		chkTimeLap(SelectionSort, workArr, DATA_SIZE, "선택정렬");
+	//	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
+	//	chkTimeLap(SelectionSort, workArr, DATA_SIZE, "선택정렬");
 
-		memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
-		chkTimeLap(InsertionSort, workArr, DATA_SIZE, "삽입정렬");
-	}
+	//	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
+	//	chkTimeLap(InsertionSort, workArr, DATA_SIZE, "삽입정렬");
+	//}
 
 
 	//-------------------------------------------------
@@ -112,23 +123,34 @@ int main(int argc, char** argv)
 	//	Heap hp;
 	//	heap_init(&hp, DATA_SIZE);
 
-	//	printArr(workArr, DATA_SIZE); // 정렬전
+	//	//printArr(workArr, DATA_SIZE); // 정렬전  (※동작테스트는 DATA_SIZE 10 으로 하자)
 
 	//	chkTimeLap(HeapSort, workArr, DATA_SIZE, "힙정렬");
 
-	//	printArr(workArr, DATA_SIZE); // 정렬후
+	//	//printArr(workArr, DATA_SIZE); // 정렬후
 
 	//	heap_destroy(&hp);
 	//}
 
 	// 퀵 정렬 (Quick Sort)
-	//memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
-	//chkTimeLap(QuickSortMain, workArr, DATA_SIZE, "퀵 정렬");
-	//printArr(workArr, DATA_SIZE);
+	printf("\nQuickSort\n");
+	{
+		int srcArr[DATA_SIZE];
+		genRandom(srcArr, DATA_SIZE, DATA_SIZE);
 
-	// 아래는 DATA_SIZE 3000 정도로 하자.  커지면 재귀호출 하다 죽는다.
-	//genIncSorted(workArr, DATA_SIZE);  // 이미 오름차순 정렬 배열
-	//chkTimeLap(QuickSortMain, workArr, DATA_SIZE, "퀵-오름차순");  // 재귀호출 하다 죽는다..
+		int workArr[DATA_SIZE];
+		memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
+
+		//printArr(workArr, DATA_SIZE);  // ※ 동작확인은 DATA_SIZE 10
+		chkTimeLap(QuickSortMain, workArr, DATA_SIZE, "퀵정렬 랜덤");  // 성능확인은 20000, 40000
+		//printArr(workArr, DATA_SIZE);
+
+		
+		// 아래는 DATA_SIZE 3000 정도로 하자.  커지면 재귀호출 하다 죽는다.
+		//genIncSorted(workArr, DATA_SIZE);  // 이미 오름차순 정렬 배열
+		//chkTimeLap(QuickSortMain, workArr, DATA_SIZE, "퀵-오름차순");  // 재귀호출 하다 죽는다..
+	}
+
 
 
 	printf("\n아무키나 입력하면 프로그램 종료됩니다\n");
