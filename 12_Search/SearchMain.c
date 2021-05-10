@@ -73,8 +73,7 @@ void genList(List *pList, int arr[], int n)
 // 배열로 부터 BST 생성
 void genBST(BTreeNode **ppRoot, int arr[], int n)
 {
-	int i;
-	for (i = 0; i < n; i++)
+	for (int i = 0; i < n; i++)
 		bst_insert(ppRoot, arr[i]);
 }
 
@@ -92,12 +91,13 @@ typedef void* fnSearch(void *, int);   // 검색함수 타입
 //	printf("%s (탐색: %d) 수행결과 : %ld ms\n", title, data, end - start);
 //}
 
-// 여러 data 들 탐색 : 시간 체크
+// collection 에서 arr[] 의 data들을 탐색하여
+// 평균 검색 시간을 체크
 void chkTimeLapArray(fnSearch search, void *collection, int arr[], int n, char *title)
 {
 	int cnt = 0;   // Search 성공한 개수
 	clock_t start, end;
-	long duration;
+	long duration = 0;
 
 	// 각 개별적인 search 의 누적합산 한뒤 평균을 구한다.
 	for (int i = 0; i < n; i++) {
@@ -114,7 +114,6 @@ void chkTimeLapArray(fnSearch search, void *collection, int arr[], int n, char *
 
 int main(int argc, char** argv)
 {
-	List list;
 
 	// 중복된 값이 없는 랜덤 배열 생성 
 	int srcArr[LEN];
@@ -127,6 +126,7 @@ int main(int argc, char** argv)
 	//printArr(workArr, LEN);
 
 	
+	List list;
 	list_init(&list);
 	genList(&list, workArr, LEN);  // list <- workArr
 	chkTimeLapArray(list_search, &list, srcArr, LEN, "리스트탐색");

@@ -24,7 +24,7 @@ int bst_insert(BTreeNode **ppRoot, BTData data)
 	while (curNode != NULL)    // 종단점까지 가면, 바로 그곳이 삽입될 위치
 	{
 		if (data == btree_get_data(curNode))
-			return FAIL;    // 키의 중복을 허용하지 않음
+			return FAIL;   // BST 에선 key 의 중복을 허용하지 않음
 
 		// 절대 BST 에서 키값은 중복되지 않는다
 
@@ -36,11 +36,11 @@ int bst_insert(BTreeNode **ppRoot, BTData data)
 			curNode = btree_get_right(curNode);
 	}
 
-	// pNode의 서브 노드에 추가할 새 노드의 생성
+	// parentNode의 서브 노드에 추가할 새 노드의 생성
 	newNode = btree_make_node();  // 새 노드의 생성  
 	btree_set_data(newNode, data); // 새 노드에 데이터 저장
 
-	// pNode의 서브 노드에 새 노드를 추가
+	// parentNode의 서브 노드에 새 노드를 추가
 	if (parentNode != NULL)    // 새 노드가 루트 노드가 아니라면,  (root )위치라면 NULL 인 상태다.
 	{
 		if (data < btree_get_data(parentNode))     // 부모의 데이터보다 작다면  left 로 붙이고

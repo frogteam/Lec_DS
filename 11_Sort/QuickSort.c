@@ -12,10 +12,10 @@ void Swap(int arr[], int idx1, int idx2)
 int Partition(int arr[], int left, int right)
 {
 	int pivot = arr[left];    // 피벗의 위치는 가장 왼쪽! 
-	int low = left + 1;   // 피벗 오른쪽부터 시작
-	int high = right;      // 가장 오른쪽에서부터 시작
+	int low = left + 1;   // low 는 피벗 오른쪽부터 시작
+	int high = right;      // high 는 right 부터 시작
 
-	while (low <= high)    // 교차되지 않을 때가지 반복하며 low, high 이동
+	while (low <= high)    // low, high가 교차되지 않을때까지 반복하면서 low, high 이동
 	{
 		//while (pivot > arr[low])
 		//	low++;
@@ -75,8 +75,9 @@ void QuickSortMain(int arr[], int n)
 //	QuickSort(arr, 0, len - 1);
 //
 //	for(int i = 0; i < len; i++)
-//		printf("%d ", arr[i]);
+//		printf("%d ", arr[i]);   // 1 2 3 4 5 6 7
 //
 //	printf("\n");
+//  getchar();
 //	return 0;
 //}
