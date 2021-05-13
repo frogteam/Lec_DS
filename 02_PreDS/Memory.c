@@ -5,12 +5,12 @@
 #include <time.h>    // clock ..  시간 날짜 함수
 #pragma warning(disable:4996)
 
-/**
-	malloc, free
-	calloc, realloc
-
-	memcpy, memset
-**/
+/*
+*	malloc(), free()
+*   calloc(), realloc()
+*
+*   memcpy(), memset()
+*/
 
 int main(int argc, char** argv)
 {
@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 		printf("arr[0]: %d\n", arr[0]);
 
 		// 메모리를 할당했으면 초기화 시켜주는것도 좋다
-		memset(arr, 0, sizeof(int) * len);  // arr부터 len * iny 만큼의 메모리 영역을 0 으로 초기화
+		memset(arr, 0, sizeof(int) * len);  // arr번지부터 len * iny 만큼의 메모리 영역을 0 으로 초기화
 		printf("arr[0]: %d\n", arr[0]);
 
 		// 반드시 동적메모리는 사용 이후에 free 할당해제 해야 함
@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 
 		printf("%d %d %d\n", arr1[0], arr1[1], arr1[2]);
 
-		// 확장하기
+		// 동적메모리 재할당 (확장, 축소)
 		//  기존의 arr1 에 할당된 공간은 해제 됩니다. (따로 free() 시키지 않아도 됨)
 		arr1 = (int*)realloc(arr1, sizeof(int) * 5);
 					

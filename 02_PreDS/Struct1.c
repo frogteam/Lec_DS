@@ -12,13 +12,14 @@
 int main(int argc, char** argv)
 {
 	{
-		struct Student
+		struct Student   // 구조체 정의 struct 사용
 		{
-			int age;
+			int age;     // 멤버변수들
 			char gender;
 		};
 
-		struct Student stu1;
+		// 구조체 타입의 변수 선언
+		struct Student stu1, stu2;
 
 		// 구조체 변수로 멤버 접근  :  멤버접근연산자 (memeber access operator) .(dot) 사용
 		stu1.age = 10;
@@ -31,8 +32,11 @@ int main(int argc, char** argv)
 		pStu = &stu1;
 
 		// 구조체 포인터로 멤버 접근 : -> (arrow operator) 사용
-		pStu->age = 23;
-		pStu->gender = 'M';
+		(*pStu).age = 23;
+		(*pStu).gender = 'M';
+
+		pStu->age = 24;
+		pStu->gender = 'F';
 
 		printf("%d, %c\n", pStu->age, pStu->gender);
 	}
