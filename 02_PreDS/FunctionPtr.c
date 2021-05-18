@@ -64,7 +64,7 @@ int main(int argc, char** argv)
 		// 포인터 대입 가능!
 		fnOp = fnPlus;
 
-		// 이제 fnPtr 은 함수처럼 사용 가능.
+		// 이제 fnOp 은 함수처럼 사용 가능.
 		// 참조 연산자로!
 
 		(*fnOp)(70, 100);
@@ -111,11 +111,12 @@ int main(int argc, char** argv)
 		fnAction = fnOpArr[op];  // op: 0 ~ 3
 
 		for (i = 0; i < 5; i++)
-			(*fnAction)(a, b);   // 걍 fnAction 을 수행.. 그런데 컴파일 시점에선 모른다.
+			(*fnAction)(a, b);   // 걍 fnAction 을 수행.. 그런데 컴파일 점에선 무엇을 실행한진 모른다 (즉 바인딩이 되어 있지 않다)
 								// 실행 해야 나중에 동작이 결정된다.   late-binding
 
-		// ↑ 순환문에 의한 오버로딩이 없다
-		// 성능향상!!!
+		// 장점: 조건문에 의한 로드가 적다.
+		// 성능향상!!
+
 
 
 

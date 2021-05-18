@@ -71,19 +71,18 @@ int main()
 }
 
 /* 거의 대부분의 현대 언어들에선 Iteration(반복자) 지원함.
-
-	Python 의 iterable객체
-		ex) for a in b:  <-- b 는 'iterable' 해야 한다.
-
-	Java
-		Enhanced-for. ex) for(int n : list)
-		Collection 의 Iterator 객체
-
-	JavaScript
-		for ~ in
-		for ~ of
-		forEach
-
-	C++
-		iterator 
+*
+*	Python 의 iterable객체
+*		ex) for a in b:  <-- b 는 'iterable' 해야 한다.
+*
+*	Java
+*		Enhanced-for. ex) for(int n : list)
+*		Collection 의 Iterator 객체
+*
+*	JavaScript
+*		for ~ in
+*		for ~ of
+*		forEach
+*	C++
+*		iterator 
 */
