@@ -1,13 +1,13 @@
 #ifndef __ARRAY_LIST_H__
 #define __ARRAY_LIST_H__
 /*
-	ArrayList 의 ADT
-
-	ArrayList 의
-	장점 : n번째 조회 빠르다
-	단점 : 삭제, 삽입 느리다.
-
-	장점 : 용량
+*	ArrayList 의 ADT
+*
+*	ArrayList 의
+*	장점 : n번째 조회 빠르다
+*	단점 : 삭제, 삽입 느리다.
+*
+*	장점 : 용량
 */
 
 #define SUCCESS 1

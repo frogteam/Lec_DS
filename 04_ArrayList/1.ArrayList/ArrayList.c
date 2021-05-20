@@ -28,10 +28,10 @@ int list_add(List* pList, Data data)
 		return FAIL;
 	}
 
-	pList->arr[pList->numData] = data;
+	pList->arr[pList->numData] = data; // 데이터 추가
 
 	printf("[%d] 번째 데이터 %d 추가\n", pList->numData, data);
-	(pList->numData)++;
+	(pList->numData)++; // 데이터 개수 증가
 	return SUCCESS;
 }
 
@@ -50,7 +50,7 @@ Data list_next(List *pList)
 	return result ;
 }
 
-// 데이터 조회 : 다음번 있나?
+// 데이터 조회 : iteration 다음 데이터 있나?
 int list_hasNext(List *pList)
 {
 	if (pList->curPosition + 1 < pList->numData) 

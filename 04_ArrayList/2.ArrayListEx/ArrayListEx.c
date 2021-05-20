@@ -110,7 +110,7 @@ int list_remove(List *pList, int n)
 	{
 		int newSize = sizeof(Data) * (pList->maxLen - LIST_INC_LEN);
 		//Data *pNewArr = (Data*)malloc(newSize);
-		pList->arr = realloc(pList->arr, newSize);
+		pList->arr = (Data*)realloc(pList->arr, newSize);
 		pList->maxLen -= LIST_INC_LEN;
 	}
 

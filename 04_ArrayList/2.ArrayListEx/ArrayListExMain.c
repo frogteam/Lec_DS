@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <conio.h>
 #include "ArrayListEx.h"
 
 // 리스트 출력 도우미 함수

@@ -59,14 +59,15 @@ int main()
 	list_remove(&myList, 2);
 	printList(&myList); // [40, 30, 20]
 	list_remove(&myList, 2);
-	printList(&myList);
+	printList(&myList); // [40, 30]
+	printf("데이터 개수는 %d\n", list_length(&myList));  // 2
 	list_remove(&myList, 0);
-	printList(&myList);
+	printList(&myList); // [30]
 	list_remove(&myList, 0);
-	list_remove(&myList, 0);
-	list_remove(&myList, 0);
-	printList(&myList);
-	printf("데이터 개수는 %d\n", list_length(&myList));
+	list_remove(&myList, 0); // 실패
+	list_remove(&myList, 0); // 실패
+	printList(&myList); // []
+	printf("데이터 개수는 %d\n", list_length(&myList));  // 0
 
 
 	// insert 테스트
