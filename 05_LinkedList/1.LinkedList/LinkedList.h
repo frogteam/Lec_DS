@@ -1,12 +1,12 @@
 #ifndef __LINKED_LIST_H__
 #define __LINKED_LIST_H__
 /*
-	LinkedList 의 ADT
-
-	장점: 삽입, 삭제 유리
-	단점: 조회에 불리
-
-	단점: ArrayList에 비해 용량 UP
+*	LinkedList 의 ADT
+*
+*	장점: 삽입, 삭제 유리
+*	단점: 조회에 불리
+*
+*	단점: ArrayList에 비해 용량 UP
 */
 
 #define TRUE 1
@@ -20,7 +20,7 @@ typedef int Data;     // 데이터는 int
 typedef struct _node
 {
 	Data data;     // 노드 데이터
-	struct _node *pNext;  // 다음 노드
+	struct _node *pNext;  // 다음 노드 포인터
 } Node;
 
 // Linked List 타입 정의

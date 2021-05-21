@@ -27,7 +27,7 @@ int list_add(List *pList, Data data)
 	memset(pNewNode, 0, sizeof(Node));
 	pNewNode->data = data;
 
-	// tail 이 가리키던 next 를 새로운 node 에 연결
+	// tail 이 가리키던 node 의 next 를 새로운 node 에 연결
 	pList->pTail->pNext = pNewNode;
 
 	//if (pList->pHead == NULL)
@@ -41,7 +41,8 @@ int list_add(List *pList, Data data)
 	//	pList->pTail->pNext = pNewNode;
 	//}
 	
-	pList->pTail = pNewNode;    // tail 이동
+	// tail 이동
+	pList->pTail = pNewNode;    
 
 	//printf("[%d] 번째 데이터 %d 추가\n", pList->numData, data);
 
@@ -50,7 +51,7 @@ int list_add(List *pList, Data data)
 }
 
 
-// 데이터 조회, 첫번째로
+// 데이터 조회, iteration 초기화
 void list_init_iter(List *pList)
 {
 	pList->pCurrent = pList->pHead;
@@ -116,14 +117,15 @@ int list_remove(List *pList, int n)
 	Node *pPrev = NULL;  // 이전 노드를 가리킬 포인터
 	while (list_hasNext(pList))
 	{
-		pPrev = pList->pCurrent; // pCurrent 를 이동하기 전의 pCurrent 값을 이전노드 로 기억해야 한다
+		pPrev = pList->pCurrent; // pCurrent 를 이동하기 전에 pCurrent 값을 '이전 노드' 로 기억해두어야 한다
 		list_next(pList);    // pCurrent 이동
 		if (i >= n)	break;
 		i++;
 	}
 
 	// 위 while 문이 끝나면 
-	// pCurrent (n번째 노드), pPrev(n-1번째 노드) 가 결정됨.
+	// pCurrent 는 n번째 노드를, 
+	// pPrev 는 n-1번째 노드를 가리키고 있다
 
 	// 순서 잘 생각해야 한다.  순서 바뀌면 엉망된다.
 
@@ -211,7 +213,9 @@ int list_insert(List* pList, int n, Data data)
 	if (pList->numData == 0   // 1.첫번째 데이터이거나
 				|| n == pList->numData)  // 맨 끝에 추가면
 	{
-		pList->pTail->pNext = pNewNode; // add() 와 동일  ※ 어짜피 첫번째 데이터인 경우 tail 이나 head나 동일하게 dummy node 를 가리키고 있을 것이다.
+		// add() 와 동일  
+		// ※ 어짜피 첫번째 데이터인 경우 tail 이나 head나 동일하게 dummy node 를 가리키고 있을 것이다.
+		pList->pTail->pNext = pNewNode; 
 		pList->pTail = pNewNode;
 	}
 	else
@@ -237,7 +241,7 @@ int list_insert(List* pList, int n, Data data)
 		pNewNode->pNext = pList->pCurrent;   // 새로운 노드는 기존의 n번째 노드를 가리키면 된다
 	}
 
-	//printf("[%d] 번째 데이터 %d 삽입\n", n, data);
+	//printf("[%d] 번째 데이터 %d 삽입\n", n, data); // 프로파일링때는 꺼야 한다
 	
 	(pList->numData)++;     // 데이터 개수 증가
 	return TRUE;
