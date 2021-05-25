@@ -14,11 +14,11 @@ int main(void)
 	stack_init(&stack); // Stack의 생성 및 초기화
 
 	// 데이터 push
-	stack_push(&stack, 1);   //  1
-	stack_push(&stack, 2);   //  1  2
-	stack_push(&stack, 3);   //  1  2  3
-	stack_push(&stack, 4);   //  1  2  3  4
-	stack_push(&stack, 5);   //  1  2  3  4  5
+	stack_push(&stack, 1);   //  1 ←
+	stack_push(&stack, 2);   //  1  2 ←
+	stack_push(&stack, 3);   //  1  2  3 ←
+	stack_push(&stack, 4);   //  1  2  3  4 ←
+	stack_push(&stack, 5);   //  1  2  3  4  5 ←
 
 	// 데이터 pop
 	stack_pop(&stack, &data);
@@ -31,8 +31,9 @@ int main(void)
 		stack_pop(&stack, &data);
 		printf("%d ", data); 
 	}
-
 	printf("\n");
+
+
 	// 도전] 100, 200, 300 ... 1000 : 10개의 데이터 PUSH
 	for (int i = 100; i <= 1000; i += 100) {
 		stack_push(&stack, i);

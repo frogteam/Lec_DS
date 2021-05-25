@@ -14,7 +14,7 @@ void stack_init(Stack * pstack)
 // 스택이 비었는지 확인
 int stack_is_empty(Stack * pstack)
 {
-	if(pstack->pTop == NULL) return SUCCESS;
+	if(pstack->pTop == NULL) return SUCCESS;  // 비어있으면 '참'
 
 	return FAIL;
 }
@@ -36,18 +36,18 @@ int stack_push(Stack * pstack, Data data)
 int stack_pop(Stack * pstack, Data *pData)
 {
 	if(stack_is_empty(pstack)) {
-		printf("Empty Stack");
+		printf("Empty Stack!\n");
 		return FAIL;
 	}
 
-	Node *pCurrent = pstack->pTop;   // 삭제할 노드 포인터 기억
+	Node *deleteNode = pstack->pTop;   // 삭제할 노드 포인터 기억
 
 	if(pData != NULL)
 		*pData = pstack->pTop->data;     // 데이터 읽기 (꺼내기)
 
 	pstack->pTop = pstack->pTop->pNext;   // top 이동
 	
-	free(pCurrent);  // pop 된 노드 제거
+	free(deleteNode);  // pop 된 노드 제거
 
 	return SUCCESS;
 }
@@ -56,12 +56,12 @@ int stack_pop(Stack * pstack, Data *pData)
 int stack_peek(Stack * pstack, Data *pData)
 {
 	if(stack_is_empty(pstack)) {
-		printf("Empry Stack");
+		printf("Empty Stack!\n");
 		return FAIL;
 	}
 
 	if(pData != NULL)   // ※ 꼭 필요함 아래 stack_destroy에서 사용된다
-		*pData = pstack->pTop->data;   // top 의 데이터만 추출
+		*pData = pstack->pTop->data;   // top 의 데이터만 읽기
 
 	return SUCCESS;
 }
