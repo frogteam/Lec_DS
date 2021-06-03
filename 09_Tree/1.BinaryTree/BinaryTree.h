@@ -21,8 +21,8 @@ void btree_set_data(BTreeNode *bt, BTData data);  // 노드 데이터 쓰기
 BTreeNode* btree_get_left(BTreeNode *bt);  // 노드의 Left sub tree
 BTreeNode* btree_get_right(BTreeNode *bt);  // 노드의 Right sub tree
 
-void btree_make_left(BTreeNode *main, BTreeNode *sub);  // main 의 left 에 sub tree 연결
-void btree_make_right(BTreeNode *main, BTreeNode *sub);  // main 의 right 에 sub tree 연결
+void btree_make_left(BTreeNode *bt, BTreeNode *sub);  // bt 의 left 에 sub tree 연결
+void btree_make_right(BTreeNode *bt, BTreeNode *sub);  // bt 의 right 에 sub tree 연결
 
 void btree_delete(BTreeNode *bt);    // 현재 노드 부터 삭제
 

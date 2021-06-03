@@ -114,8 +114,9 @@ void btree_levelorder_traverse(BTreeNode *bt, fnVisitNode action)
 	queue_init(&q);
 
 	// 일단 root 를 먼저 enq
-	queue_enq(&q, bt);
+	queue_enq(&q, bt);  // ※queue_enq(&q, (Data) bt); <-- 원래 이렇게 해야 한다. 2019 에선 이리 안하면 에러 난다.
 
+	// while(큐 가 empty 될때까지)
 	while (!queue_is_empty(&q))
 	{
 		BTreeNode *btCurrent;

@@ -112,7 +112,7 @@ HData heap_delete(Heap * ph)
 		idx = childIdx;  
 	}
 
-	// while이 다 끝난 그 자리가, 마지막 노드가 위치할 곳이다.
+	// while 이 다 끝난 그 자리(idx)가, 마지막 노드(lastElem)가 위치할 곳이다
 	ph->heapArr[idx] = lastElem;
 	ph->numData--;   // 데이터 개수 -1 감소
 	return rootData;   // 최초에 저장해 놓았던 root data 리턴
