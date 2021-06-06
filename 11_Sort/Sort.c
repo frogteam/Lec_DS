@@ -16,8 +16,8 @@ void printArr(int arr[], int n)
 	printf("\b]\n");  // backspace
 }
 
-// 1 ~ bound 사이의 무작위 정수 n개 
-void genRandom(int arr[], int n, int bound)
+// 무작위 배열 1 ~ n 범위
+void genRandom(int arr[], int n)
 {
 	// 무작위 정수
 	//srand(time(NULL));
@@ -27,9 +27,7 @@ void genRandom(int arr[], int n, int bound)
 	//	arr[i] = rand() % bound + 1;
 	//}
 
-	for (int i = 0; i < n; i++)
-		arr[i] = i + 1;
-	
+	genIncSorted(arr, n);	
 	shuffleArr(arr, n);
 }
 
@@ -43,11 +41,8 @@ void genIncSorted(int arr[], int n)
 // 내림차순 배열 n ~ 1
 void genDecSorted(int arr[], int n)
 {
-	int i;
-	for (i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++)
 		arr[i] = n - i;
-	}
 }
 
 // 배열 섞기

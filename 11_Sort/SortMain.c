@@ -65,7 +65,7 @@ int main(int argc, char** argv)
 	//------------------------------------------------
 	//{   // 우선 도우미 함수 동작 확인 , 일단 DATA_SIZE 는 10 정도로 테스트
 	//	int srcArr[DATA_SIZE];
-	//	genRandom(srcArr, DATA_SIZE, DATA_SIZE);
+	//	genRandom(srcArr, DATA_SIZE);
 	//	printArr(srcArr, DATA_SIZE);
 	//	genIncSorted(srcArr, DATA_SIZE);
 	//	printArr(srcArr, DATA_SIZE);
@@ -77,7 +77,7 @@ int main(int argc, char** argv)
 	//printf("\nTime Complexity\n");
 	//{
 	//	int srcArr[DATA_SIZE];  // DATA_SIZE 를 20000, 40000 .. 테스트 해보자.
-	//	genRandom(srcArr, DATA_SIZE, DATA_SIZE);  // 랜덤으로 생성
+	//	genRandom(srcArr, DATA_SIZE);  // 랜덤으로 생성
 	//	int workArr[DATA_SIZE];
 
 	//	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);  // workArr <- srcArr 배열 복사
@@ -111,10 +111,24 @@ int main(int argc, char** argv)
 	//	chkTimeLap(InsertionSort, workArr, DATA_SIZE, "삽입정렬");
 	//}
 
+	printf("HeapSort 동작\n");
+	{
+		int data[] = { 3, 2, 7, 5, 1 };
+		length = sizeof(data) / sizeof(int);
+
+		Heap hp;
+		heap_init(&hp, length);
+
+		HeapSort(data, length);
+		printArr(data, length);   // 1, 2, 3, 5, 7
+
+		heap_destroy(&hp);
+	}
+
 
 	//printf("\nHeapSort\n");
 	//{
-	//	int srcArr[DATA_SIZE];
+	//	int srcArr[DATA_SIZE];  // (※동작테스트는 DATA_SIZE 10 으로 하자)
 	//	genRandom(srcArr, DATA_SIZE, DATA_SIZE);
 
 	//	int workArr[DATA_SIZE];
@@ -123,7 +137,7 @@ int main(int argc, char** argv)
 	//	Heap hp;
 	//	heap_init(&hp, DATA_SIZE);
 
-	//	//printArr(workArr, DATA_SIZE); // 정렬전  (※동작테스트는 DATA_SIZE 10 으로 하자)
+	//	//printArr(workArr, DATA_SIZE); // 정렬전  
 
 	//	chkTimeLap(HeapSort, workArr, DATA_SIZE, "힙정렬");
 

@@ -12,7 +12,7 @@
 // 노드 인덱스 계산 매크로 (성능 UP ★)
 #define GET_PARENT_IDX(idx) ((idx) >> 1)   // idx / 2
 #define GET_LEFT_IDX(idx) ((idx) << 1)		// idx * 2
-#define GET_RIGHT_IDX(idx) (((idx) << 1) + 1)  // idx * 2 + 1
+#define GET_RIGHT_IDX(idx) (((idx) << 1) + 1)  // idx * 2 + 1   ★괄호주의★
 
 // 비교함수 대신 매크로 (성능 UP ★)
 #define COMP_ASC(d1, d2) ((d2) - (d1))  // 오름차순
