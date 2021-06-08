@@ -8,7 +8,7 @@
 #include "BinarySearchTree.h"
 
 
-#define LEN 30000  
+#define DATA_SIZE 30000  
 
 void printArr(int arr[], int n)
 {
@@ -116,26 +116,33 @@ int main(int argc, char** argv)
 {
 
 	// 중복된 값이 없는 랜덤 배열 생성 
-	int srcArr[LEN];
-	int workArr[LEN];
+	int srcArr[DATA_SIZE];
+	int workArr[DATA_SIZE];
 
-	genIncSorted(srcArr, LEN);
+	genIncSorted(srcArr, DATA_SIZE);
 
-	memcpy(workArr, srcArr, sizeof(int) * LEN);
-	shuffleArr(workArr, LEN);
-	//printArr(workArr, LEN);
+	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
+	shuffleArr(workArr, DATA_SIZE);
+	//printArr(workArr, DATA_SIZE);
 
 	
 	List list;
 	list_init(&list);
-	genList(&list, workArr, LEN);  // list <- workArr
-	chkTimeLapArray(list_search, &list, srcArr, LEN, "리스트탐색");
+	genList(&list, workArr, DATA_SIZE);  // list <- workArr
+	chkTimeLapArray(list_search, &list, srcArr, DATA_SIZE, "리스트탐색");
 	list_destroy(&list);
 
 	BTreeNode *pRoot;   // BST 의 루트
 	bst_make_init(&pRoot);   // BST 초기화
-	genBST(&pRoot, workArr, LEN);  // BST <- workArr
-	chkTimeLapArray(bst_search, pRoot, srcArr, LEN, "BST탐색");
+
+	//genBST(&pRoot, srcArr, 10);  // 동작테스트, 1 ~ 10
+	//BTreeNode *p = NULL;
+	//for(int i = 1; i <= 10; i++)
+	//	if (p = bst_search(pRoot, i)) printf("발견 %d\n", p->data);
+
+
+	genBST(&pRoot, workArr, DATA_SIZE);  // BST <- workArr
+	chkTimeLapArray(bst_search, pRoot, srcArr, DATA_SIZE, "BST탐색");
 	btree_delete(pRoot);  // binary Tree 삭제
 
 	printf("\n아무키나 입력하면 프로그램 종료됩니다\n");

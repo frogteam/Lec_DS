@@ -52,9 +52,9 @@ void QuickSort(int arr[], int left, int right)
 {
 	if (left <= right)
 	{
-		int pivot = Partition(arr, left, right);    // 둘로 나눠서 
-		QuickSort(arr, left, pivot - 1);    // 왼쪽 영역을 정렬
-		QuickSort(arr, pivot + 1, right);    // 오른쪽 영역을 정렬
+		int pivot = Partition(arr, left, right);    // pivot 정하고 둘로 쪼갬.
+		QuickSort(arr, left, pivot - 1);    // pivot 왼쪽 영역을 정렬
+		QuickSort(arr, pivot + 1, right);    // pivot 오른쪽 영역을 정렬
 	}
 }
 
