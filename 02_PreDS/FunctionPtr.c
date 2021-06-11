@@ -61,7 +61,7 @@ int main(int argc, char** argv)
 		// void 리턴하고 (int, int) 매개변수 받는 함수에 대한 함수 포인터?
 		void(*fnOp)(int, int);  // <-- fnOp 이라는 '함수포인터 변수 선언'
 						
-		// 포인터 대입 가능!
+		// 포인터 변수 <= 대입 가능!
 		fnOp = fnPlus;
 
 		// 이제 fnOp 은 함수처럼 사용 가능.
@@ -111,7 +111,7 @@ int main(int argc, char** argv)
 		fnAction = fnOpArr[op];  // op: 0 ~ 3
 
 		for (i = 0; i < 5; i++)
-			(*fnAction)(a, b);   // 걍 fnAction 을 수행.. 그런데 컴파일 점에선 무엇을 실행한진 모른다 (즉 바인딩이 되어 있지 않다)
+			(*fnAction)(a, b);   // 걍 fnAction 을 수행.. 그런데 컴파일 시점에선 무엇을 실행한진 모른다 (즉 바인딩이 되어 있지 않다)
 								// 실행 해야 나중에 동작이 결정된다.   late-binding
 
 		// 장점: 조건문에 의한 로드가 적다.

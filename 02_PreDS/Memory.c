@@ -72,7 +72,6 @@ int main(int argc, char** argv)
 		int *arr;
 
 		// 실수 많이 하는 것들.  
-		int i;
 		for (int i = 0; i < 10; i++) {
 			arr = (int*)malloc(sizeof(int) * len);
 			_sleep(5000);  // delay주기 ms단위
