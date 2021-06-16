@@ -41,12 +41,12 @@ int main()
 	list_set(&myList, 0, 40);  // 0번째 데이터를 100 --> 40으로 수정
 	list_set(&myList, 1, 30);
 	list_set(&myList, 4, 30);  // 수정 실패
-	printList(&myList);
+	printList(&myList);        // [40, 30, 100, 20]
 
 	// 데이터 개수
 	printf("데이터 개수는 %d\n", list_length(&myList)); // 4
 
-	// 데이터 조회
+	// n번째 데이터 조회
 	Data data;
 	if (list_get(&myList, 0, &data)) printf("0번째 : %d\n", data); // 40
 	if (list_get(&myList, 6, &data)) printf("6번째 : %d\n", data); // 실패
@@ -80,9 +80,10 @@ int main()
 	list_insert(&myList, 0, 5);
 	printList(&myList);   // [5, 10, 40, 20]
 	list_insert(&myList, 0, 5);  // 실패
+	printf("데이터 개수는 %d\n", list_length(&myList));  // 4
 
 	list_init(&myList);
-	list_insert(&myList, 0, 5);
+	list_insert(&myList, 0, 5);  // insert 는 list 의 끝에 추가(add) 가능하게 동작시키기
 	list_insert(&myList, 0, 25);
 	list_insert(&myList, 0, 45);
 	list_insert(&myList, 0, 55);
