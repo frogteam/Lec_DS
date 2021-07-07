@@ -197,7 +197,7 @@ Node* list_search(List *pList, int data)
 	//		return pList->pCurrent;  // 찾으면 해당 노드 리턴
 	//}
 
-	pList->pCurrent = pList->pHead;
+	pList->pCurrent = pList->pHead;  // head 부터 검색하기
 	while (pList->pCurrent->pNext != NULL)
 	{
 		pList->pCurrent = pList->pCurrent->pNext;

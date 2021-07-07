@@ -114,7 +114,7 @@ void SelectionSort(int arr[], int n)
 		for (j = i + 1; j < n; j++)   // 최소값 탐색 (i 다음 부터 끝까지)
 		{
 			if (arr[min_idx] > arr[j])   // 혹시 기존의 min_idx번째 값보다 더 작은 것이 발견되었다면? <<비교>>
-				min_idx = j;             // min_idx 는 이번에 발견한 더 작은 값으로 선택하기!
+				min_idx = j;             // min_idx 를 이번에 발견한 더 작은 값으로 '선택'하기!
 		}
 		// for 문이 끝나면
 		// min_idx 의 값은 i번째 이후의 원소 중에서 가장 작은 값을 가리키고 있을터이다.

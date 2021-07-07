@@ -39,6 +39,7 @@ int queue_enq(Queue * pq, Data data)
 	// ※ LinkedList.c 의 list_add() 함수와 비교해보자
 	//    dummy node 를 사용한것(LinkedList)와
 	//    그렇지 않은것(ListBaseQueue)도 비교
+	//   dummy node  를 사용하면 코드가 더욱 간결해진다. (분기가 적어진다)
 }
 
 int queue_deq(Queue * pq, Data *pData)

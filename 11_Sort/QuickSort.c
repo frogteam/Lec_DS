@@ -11,9 +11,9 @@ void Swap(int arr[], int idx1, int idx2)
 
 int Partition(int arr[], int left, int right)
 {
-	int pivot = arr[left];    // 피벗의 위치는 가장 왼쪽! 
-	int low = left + 1;   // low 는 피벗 오른쪽부터 시작
-	int high = right;      // high 는 right 부터 시작
+	int pivot = arr[left];    // 피벗의 위치는 가장 왼쪽!  (값)
+	int low = left + 1;   // low 는 피벗 오른쪽부터 시작 (인덱스)
+	int high = right;      // high 는 right 부터 시작 (인덱스)
 
 	while (low <= high)    // low, high가 교차되지 않을때까지 반복하면서 low, high 이동
 	{
@@ -45,7 +45,7 @@ int Partition(int arr[], int left, int right)
 	// 이 시점에서 high 의 우측으로는 pivot 보다 큰 것들이
 	// pivot 의 좌측으로는 high 보다 작은 것들이 자리잡게 된다.
 
-	return high;    // 옮겨진 피벗의 위치 정보 반환
+	return high;    // 옮겨진 피벗의 위치 정보(인덱스) 반환
 }
 
 void QuickSort(int arr[], int left, int right)
@@ -53,10 +53,12 @@ void QuickSort(int arr[], int left, int right)
 	if (left <= right)
 	{
 		int pivot = Partition(arr, left, right);    // pivot 정하고 둘로 쪼갬.
-		QuickSort(arr, left, pivot - 1);    // pivot 왼쪽 영역을 정렬
-		QuickSort(arr, pivot + 1, right);    // pivot 오른쪽 영역을 정렬
+		QuickSort(arr, left, pivot - 1);    // pivot 왼쪽 영역을 퀵정렬
+		QuickSort(arr, pivot + 1, right);    // pivot 오른쪽 영역을 퀵정렬
 	}
 }
+
+// ※ ↑ 여기까지 하고, main() 에서 퀵정렬 동작 확인하자.
 
 void QuickSortMain(int arr[], int n)
 {
@@ -64,20 +66,4 @@ void QuickSortMain(int arr[], int n)
 }
 
 
-// 퀵정렬 동작 확인
-//int main(void)
-//{
-////	int arr[7] = {3, 2, 4, 1, 7, 6, 5};
-//	int arr[3] = {3, 3, 3};
-//
-//	int len = sizeof(arr) / sizeof(int);
-//
-//	QuickSort(arr, 0, len - 1);
-//
-//	for(int i = 0; i < len; i++)
-//		printf("%d ", arr[i]);   // 1 2 3 4 5 6 7
-//
-//	printf("\n");
-//  getchar();
-//	return 0;
-//}
+

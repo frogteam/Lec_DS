@@ -30,13 +30,13 @@ int bst_insert(BTreeNode **ppRoot, BTData data)
 
 		parentNode = curNode;   // 일단 parent node 를 current node 로 두고
 
-		if (btree_get_data(curNode) > data)   // 삽입하려는 데이터가 더 작다면  currnet node 를 left 로 이동
+		if (btree_get_data(curNode) > data)   // 삽입하려는 data가 노드의 데이터보다 더 작다면. current node 를 left 로 이동
 			curNode = btree_get_left(curNode);
-		else                          // 삽입하려는 데이터가 더 크다면  currnet node 를 right 로 이동
+		else                          // 삽입하려는 data가 노드의 데이터보다 더 크다면  currnet node 를 right 로 이동
 			curNode = btree_get_right(curNode);
 	}
 
-	// parentNode의 서브 노드에 추가할 새 노드의 생성
+	// 추가할 새 노드의 생성
 	newNode = btree_make_node();  // 새 노드의 생성  
 	btree_set_data(newNode, data); // 새 노드에 데이터 저장
 
@@ -62,14 +62,14 @@ BTreeNode* bst_search(BTreeNode *pRoot, BTData data)
 	BTreeNode *curNode = pRoot;    // current node 는 root 부터 탐색 시작
 	BTData curData;    // current data
 
-	while (curNode != NULL)
+	while (curNode != NULL) // 탐색을 해 내려가다가 종단점까지 도달하면 결국 탐색실패한 것이다.
 	{
-		curData = btree_get_data(curNode);
+		curData = btree_get_data(curNode);   // 현재 노드의 데이터
 
 		if (data == curData)
 			return curNode;       // 발견!!!  노드 포인터 리턴하고, 탐색 종료
 
-		else if (data < curData)          // 데이터값이 curData 보다 작다면 left 서브트리로 이동하여 탐색
+		if (data < curData)          // data 값이 노드의 데이터보다 작다면 left 로 이동
 			curNode = btree_get_left(curNode);
 		else                            // 데이터값이 curData 보다 크다면 right 서브트리로 이동하여 탐색
 			curNode = btree_get_right(curNode);

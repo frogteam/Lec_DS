@@ -95,14 +95,14 @@ int main(int argc, char** argv)
 	//printf("\nWORST vs BEST case\n");
 	//{
 	//	// 랜덤 배열
-	//	int srcArr[DATA_SIZE];
-	//	genRandom(srcArr, DATA_SIZE, DATA_SIZE);  // #1 램덤
+	//	int srcArr[DATA_SIZE];   // 일단 20000
+	//	genRandom(srcArr, DATA_SIZE);  // #1 램덤
 	//	//genIncSorted(srcArr, DATA_SIZE);     // #2 오름차순 이미 정렬된 배열
 	//	//genDecSorted(srcArr, DATA_SIZE);  // #3 내림차순 역정렬된 배열
 	//	int workArr[DATA_SIZE];
 
 	//	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
-	//	chkTimeLap(BubbleSort, workArr, DATA_SIZE, "버블정렬");
+	//	chkTimeLap(BubbleSort, workArr, DATA_SIZE, "버블정렬");  // 램덤, 오름, 역정렬
 
 	//	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
 	//	chkTimeLap(SelectionSort, workArr, DATA_SIZE, "선택정렬");
@@ -129,7 +129,7 @@ int main(int argc, char** argv)
 	//printf("\nHeapSort\n");
 	//{
 	//	int srcArr[DATA_SIZE];  // (※동작테스트는 DATA_SIZE 10 으로 하자)
-	//	genRandom(srcArr, DATA_SIZE, DATA_SIZE);
+	//	genRandom(srcArr, DATA_SIZE);
 
 	//	int workArr[DATA_SIZE];
 	//	memcpy(workArr, srcArr, sizeof(int) * DATA_SIZE);
@@ -144,6 +144,16 @@ int main(int argc, char** argv)
 	//	//printArr(workArr, DATA_SIZE); // 정렬후
 
 	//	heap_destroy(&hp);
+	//}
+
+	//printf("\n퀵소트 동작 확인\n");
+	//{
+	//	int arr[] = { 40, 50, -30, -11, -333, 349, 23};
+	//	int len = sizeof(arr) / sizeof(int);
+
+	//	printArr(arr, len);  // 퀵정렬 전
+	//	QuickSort(arr, 0, len - 1);
+	//	printArr(arr, len);  // 퀵정렬 후
 	//}
 
 	// 퀵 정렬 (Quick Sort)
@@ -163,6 +173,9 @@ int main(int argc, char** argv)
 		// 아래는 DATA_SIZE 3000 정도로 하자.  커지면 재귀호출 하다 죽는다.
 		//genIncSorted(workArr, DATA_SIZE);  // 이미 오름차순 정렬 배열
 		//chkTimeLap(QuickSortMain, workArr, DATA_SIZE, "퀵-오름차순");  // 재귀호출 하다 죽는다..
+
+		// ※ 프로젝트 속성 - 링커 - 시스템 - 스택예약크기 => 4194304 (4M)
+		// 위와 같이 하면 DATA_SIZE 10000 동작 가능
 	}
 
 
@@ -172,6 +185,50 @@ int main(int argc, char** argv)
 	return 0;
 } // end main()
 
+  /*
+  버블정렬 (size: 20000) 수행결과: 829 ms
+  선택정렬 (size: 20000) 수행결과: 383 ms
+  삽입정렬 (size: 20000) 수행결과: 178 ms
 
+  버블정렬 (size: 40000) 수행결과: 3424 ms
+  선택정렬 (size: 40000) 수행결과: 1520 ms
+  삽입정렬 (size: 40000) 수행결과: 650 ms
+
+  버블정렬 (size: 80000) 수행결과: 12992 ms
+  선택정렬 (size: 80000) 수행결과: 6117 ms
+  삽입정렬 (size: 80000) 수행결과: 1964 ms
+
+  --------------------------------------
+  WORST vs. BEST case
+  버블랜덤 (size: 20000) 수행결과: 834 ms
+  선택랜덤 (size: 20000) 수행결과: 378 ms
+  삽입랜덤 (size: 20000) 수행결과: 174 ms
+
+  버블오름 (size: 20000) 수행결과: 439 ms
+  선택오름 (size: 20000) 수행결과: 387 ms
+  삽입오름 (size: 20000) 수행결과: 0 ms
+
+  버블역정렬 (size: 20000) 수행결과: 607 ms
+  선택역정렬 (size: 20000) 수행결과: 346 ms
+  삽입역정렬 (size: 20000) 수행결과: 396 ms
+
+  HeapSort
+  힙정렬 (size: 20000) 수행결과: 6 ms
+  힙정렬 (size: 40000) 수행결과: 13 ms
+  힙정렬 (size: 80000) 수행결과: 26 ms
+
+  QuickSort
+  퀵정렬 랜덤 (size: 20000) 수행결과: 3 ms
+  퀵정렬 랜덤 (size: 40000) 수행결과: 8 ms
+  퀵정렬 랜덤 (size: 80000) 수행결과: 16 ms
+
+  QuickSort : BEST vs. WORST.
+  퀵정렬 랜덤 (size: 3000) 수행결과: 1 ms
+  퀵-오름차순 (size: 3000) 수행결과: 8 ms
+
+  퀵정렬 랜덤 (size: 10000) 수행결과: 2 ms
+  퀵-오름차순 (size: 10000) 수행결과: 96 ms
+
+  */
 
 

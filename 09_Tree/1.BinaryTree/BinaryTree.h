@@ -32,7 +32,7 @@ void btree_delete(BTreeNode *bt);    // 현재 노드 부터 삭제
 // 노드를 visit 하여 노드의 데이터에 대해 수행할 함수 (함수포인터) 타입 선언
 typedef void fnVisitNode(BTData data);  
 
-// 주어진 노드 bt 부터 시작하여 preorder traversing 하면서 
+// 주어진 노드 bt 부터 시작하여 traversing 하면서 
 // node 를 visit 할때마다 action() 수행
 void btree_preorder_traverse(BTreeNode *bt, fnVisitNode action);
 void btree_inorder_traverse(BTreeNode *bt, fnVisitNode action);

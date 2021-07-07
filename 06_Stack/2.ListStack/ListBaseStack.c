@@ -22,6 +22,7 @@ int stack_is_empty(Stack * pstack)
 // top 에 데이터 추가 (push)
 int stack_push(Stack * pstack, Data data)
 {
+	// 새로운 노드 생성
 	Node *pNewNode = (Node*)malloc(sizeof(Node));
 	pNewNode->data = data;
 

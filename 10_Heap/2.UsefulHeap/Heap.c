@@ -59,7 +59,7 @@ int heap_is_empty(Heap * ph)
 void heap_insert(Heap * ph, HData data)
 {
 	// 새로 INSERT 되는 데이터는 맨 끝에서 시작
-	int idx = ph->numData + 1;  // 배열 인덱스는 '1' 부터 시작한다
+	int idx = ph->numData + 1;  // 배열 인덱스는 '1' 부터 시작한다. 전체 node 의 개수는 곧 numData 이고, numData 는 곧 맨 마지막 노드의 인덱스 입니다
 
 	// 아래 while 문 수행하면서 새로 insert 된 data 가 위치할 idx 를 결정
 	while(idx != 1) // root (최상위) 에 도달할때까지.

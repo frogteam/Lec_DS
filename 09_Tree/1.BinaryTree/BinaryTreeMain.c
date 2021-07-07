@@ -35,11 +35,11 @@ int main(void)
 		//     ↙
 		//    (4)
 
-		// b1 의 left 의 data 는?
+		// bt1 의 left 의 data 는?
 		printf("%d \n",
 			btree_get_data(btree_get_left(bt1)));  // 2
 
-		// b1 의 left 의 left 의 데이터는?
+		// bt1 의 left 의 left 의 데이터는?
 		printf("%d \n",
 			btree_get_data(btree_get_left(btree_get_left(bt1))));  // 4
 

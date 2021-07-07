@@ -62,7 +62,7 @@ void shuffleArr(int arr[], int n)
 		}
 	}
 }
-// 배열로 부터 list 생성
+// 배열로 부터 List 생성
 void genList(List *pList, int arr[], int n)
 {
 	for (int i = 0; i < n; i++)
@@ -99,7 +99,7 @@ void chkTimeLapArray(fnSearch search, void *collection, int arr[], int n, char *
 	clock_t start, end;
 	long duration = 0;
 
-	// 각 개별적인 search 의 누적합산 한뒤 평균을 구한다.
+	// 각 개별적인 search 의 경과시간 누적합산 한뒤 평균을 구한다.
 	for (int i = 0; i < n; i++) {
 		start = clock();
 		if (search(collection, arr[i]) != NULL) cnt++;  // 탐색수행

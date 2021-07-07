@@ -148,6 +148,7 @@ int main()
 		end = clock(); //시간 측정 끝
 		printf("get 결과 : %ld ms 경과\n", end - start);
 
+		//---------------------------------
 		printf("아무키나 누르면 삭제가 시작됩니다: 스냅샷\n");
 		_getch();
 		printf("%d 개 remove...\n", test_size);
